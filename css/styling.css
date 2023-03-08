@@ -13,4 +13,22 @@
     --size-48: 3rem;
     --size-56: 3.5rem;
     --size-64: 4rem;
+    --header-font: 'Spline Sans', sans-serif;
+}
+
+.site-header {
+    font-family: var(--header-font);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-header-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.site-header-logo-container i {
+    font-size: var(--size-32);
+    padding: var(--size-16);
 }
