@@ -16,6 +16,10 @@
     --header-font: 'Spline Sans', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .site-header {
     font-family: var(--header-font);
     display: flex;
