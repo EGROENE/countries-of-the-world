@@ -13,11 +13,22 @@
     --size-48: 3rem;
     --size-56: 3.5rem;
     --size-64: 4rem;
-    --header-font: 'Spline Sans', sans-serif;
+    --header-font: 'Timmana', sans-serif;
+    --body-font: 'Mukta Mahee', sans-serif;
+}
+
+h1,
+header {
+    font-family: var(--header-font);
 }
 
 a {
     text-decoration: none;
+    font-family: var(--body-font);
+}
+
+p {
+    font-family: var(--body-font);
 }
 
 .site-header {
