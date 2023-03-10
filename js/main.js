@@ -77,7 +77,9 @@ async function getCountries() {
     allCountriesArea.innerHTML +=
       '<a href="./country-pages/' +
       country.name.common.toLowerCase() +
-      '.html" class="country-card">' +
+      '.html" class="country-card" title="Learn more about ' +
+      country.name.common +
+      '!">' +
       "<div class='card-flag-container'>" +
       "<img src='" +
       country.flags.png +
@@ -85,6 +87,7 @@ async function getCountries() {
       country.flags.alt +
       "'>" +
       "</div>" +
+      "<div class='country-card-text-container'>" +
       "<header>" +
       country.name.common +
       "</header>" +
@@ -97,6 +100,7 @@ async function getCountries() {
       "<p>Capital: " +
       country.capital.toString() +
       "</p>" +
+      "</div>" +
       "</a>";
   }
 }
