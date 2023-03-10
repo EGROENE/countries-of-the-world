@@ -58,6 +58,7 @@ p {
     background-color: var(--theme-color-one);
     position: sticky;
     top: var(--size-8);
+    z-index: 100;
 }
 
 .site-header-logo-container {
@@ -196,8 +197,6 @@ border-radius: 50%;
 #search-box-container i:hover {
     cursor: pointer;
 }
-
-
 
 #all-countries-container {
     display: grid;
