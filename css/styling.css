@@ -56,6 +56,8 @@ p {
     align-items: center;
     justify-content: space-between;
     background-color: var(--theme-color-one);
+    position: sticky;
+    top: var(--size-8);
 }
 
 .site-header-logo-container {
@@ -89,11 +91,39 @@ p {
 }
 
 #moon {
-    color: #F7EAC6;
+    color: #f8e8bd;
 }
 
 .site-header-functions-container input {
-    margin-right: var(--size-12);
+    padding: 3px;
+}
+
+#search-box-container {
+    display: flex;
+    align-items: center;
+}
+
+#search-box-container input {
+    border-radius: var(--size-4);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 3px solid var(--theme-color-two);
+    font-family: var(--body-font);
+    width: 11rem;
+    font-weight: 700;
+}
+
+#search-box-container input:focus {
+    outline: none;
+}
+
+#search-box-container i {
+    background-color: var(--theme-color-two);
+    padding: var(--size-8) var(--size-8);
+    border-top-right-radius: var(--size-4);
+    border-bottom-right-radius: var(--size-4);
+    height: 18px;
+    color: white;
 }
 
 #theme-toggler i {
