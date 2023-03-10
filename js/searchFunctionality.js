@@ -43,7 +43,7 @@ searchInput.addEventListener("keyup", (e) => {
         totalResults += 0;
         country.style.display = "none";
         if (totalResults === 0) {
-          resultsMessage.textContent = `Sorry, we couldn't find what you're looking for`;
+          resultsMessage.textContent = `Sorry, we couldn't find what you're looking for.`;
         }
       }
     }
