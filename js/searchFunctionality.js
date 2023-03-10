@@ -33,7 +33,11 @@ searchInput.addEventListener("keyup", (e) => {
         // display cards that pass above criteria
         country.style.display = "flex";
         totalResults += 1;
-        resultsMessage.textContent = `Your search yielded ${totalResults} results.`;
+        if (totalResults === 1) {
+          resultsMessage.textContent = `Your search yielded ${totalResults} result.`;
+        } else if (totalResults > 1) {
+          resultsMessage.textContent = `Your search yielded ${totalResults} results.`;
+        }
       } else {
         totalResults += 0;
         country.style.display = "none";
