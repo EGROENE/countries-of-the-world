@@ -71,15 +71,39 @@ async function getCountries() {
   //let mainArray = allCountriesArray.map((country) => country);
   console.log(mainArray);
 
-  // Populate homepage:
-  let allCountriesArea = document.getElementById("all-countries-container");
   for (let country of mainArray) {
+    // Set country's currency dataset value:
+    let currencies = Object.values(country.currencies);
+    let currencyNames = currencies.map((currency) =>
+      currency.name.toLowerCase()
+    );
+    let currencyDataset = currencyNames.map((currencyName) =>
+      currencyName.replace(/\s/g, "-")
+    );
+
+    // Set country's languages dataset value:
+    let languages = Object.values(country.languages);
+    languages = languages.map((language) => language.toLowerCase());
+    let languagesDataset = languages.join("-");
+
+    // Populate homepage:
+    let allCountriesArea = document.getElementById("all-countries-container");
     allCountriesArea.innerHTML +=
       '<a href="./country-pages/' +
       country.name.common.toLowerCase() +
       '.html" class="country-card" title="Click to learn more about ' +
       country.name.common +
-      '!">' +
+      '!" data-name=' +
+      country.name.common.toLowerCase() +
+      " data-region=" +
+      country.region.toLowerCase() +
+      " data-capital=" +
+      country.capital.toString().toLowerCase() +
+      " data-currencies=" +
+      currencyDataset +
+      " data-languages=" +
+      languagesDataset +
+      ">" +
       "<div class='card-flag-container'>" +
       "<img src='" +
       country.flags.png +
