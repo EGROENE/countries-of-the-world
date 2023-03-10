@@ -17,6 +17,7 @@ searchInput.addEventListener("keyup", (e) => {
         totalResults = 0;
         searchInput.value = "";
         country.style.display = "flex";
+        resultsMessage.textContent = "";
       });
       if (
         country.dataset.name.toLowerCase().trim().includes(value) ||
