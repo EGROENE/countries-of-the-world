@@ -26,7 +26,7 @@ searchInput.addEventListener("keyup", (e) => {
           .toLowerCase()
           .trim()
           .includes(value) ||
-        String(country.dataset.population).includes(value) ||
+        country.dataset.population.includes(value) ||
         country.dataset.currencies.includes(value) ||
         country.dataset.languages.includes(value)
       ) {

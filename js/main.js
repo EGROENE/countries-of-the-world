@@ -99,6 +99,8 @@ async function getCountries() {
       country.region.toLowerCase() +
       " data-capital=" +
       country.capital.toString().toLowerCase() +
+      " data-population=" +
+      String(country.population) +
       " data-currencies=" +
       currencyDataset +
       " data-languages=" +
