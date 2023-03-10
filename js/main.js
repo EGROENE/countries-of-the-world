@@ -77,7 +77,7 @@ async function getCountries() {
     allCountriesArea.innerHTML +=
       '<a href="./country-pages/' +
       country.name.common.toLowerCase() +
-      '.html" class="country-card" title="Learn more about ' +
+      '.html" class="country-card" title="Click to learn more about ' +
       country.name.common +
       '!">' +
       "<div class='card-flag-container'>" +
