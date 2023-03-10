@@ -15,14 +15,27 @@
     --size-64: 4rem;
     --header-font: 'Timmana', sans-serif;
     --body-font: 'Mukta Mahee', sans-serif;
-    --text-color: black;
+    --theme-color-one: #1985a1;
+    --theme-color-two: #4c5c68;
+    --theme-color-three: #46494c;
+    --theme-color-four: #dcdcdd;
+    --theme-color-five: #c7c7c7;
 }
 
 body {
-    color: var(--text-color);
+    color: black;
+    background-color: var(--theme-color-four);
 }
 
-h1,
+.dark-mode {
+    color: white;
+    background-color: var(--theme-color-two);
+}
+
+h1 {
+    color: white;
+}
+
 header {
     font-family: var(--header-font);
 }
@@ -42,6 +55,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: var(--theme-color-one);
 }
 
 .site-header-logo-container {
@@ -52,4 +66,98 @@ p {
 .site-header-logo-container i {
     font-size: var(--size-32);
     padding: var(--size-16);
+}
+
+.site-header-functions-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    width: 50%;
+    max-width: 50%;
+}
+
+#theme-toggler {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 25%;
+    max-width: 25%;
+}
+
+#sun {
+    color: yellow;
+}
+
+#moon {
+    color: #F7EAC6;
+}
+
+.site-header-functions-container input {
+    margin-right: var(--size-12);
+}
+
+#theme-toggler i {
+    font-size: var(--size-32);
+}
+
+#switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+  
+/* Hide default HTML checkbox */
+#switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+  /* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--theme-color-four);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: var(--theme-color-two);
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--theme-color-two);
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+  
+/* Rounded sliders */
+.slider.round {
+border-radius: 34px;
+}
+  
+.slider.round:before {
+border-radius: 50%;
 }
