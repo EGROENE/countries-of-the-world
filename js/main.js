@@ -54,7 +54,7 @@ async function getCountries() {
   // Add data from API to mainArray, which will be used to populate homepage:
   let mainArray = [];
   //for (let i = 0; i < allCountriesArray.length; i++) {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 10; i++) {
     mainArray.push(allCountriesArray[i]);
   }
   // Sort countries alphabetically before displaying on homepage:
@@ -90,7 +90,7 @@ async function getCountries() {
     let allCountriesArea = document.getElementById("all-countries-container");
     allCountriesArea.innerHTML +=
       '<a href="./country-pages/' +
-      country.name.common.toLowerCase() +
+      country.name.common.toLowerCase().replace(/\s/g, "-") +
       '.html" class="country-card" title="Click to learn more about ' +
       country.name.common +
       '!" data-name=' +
