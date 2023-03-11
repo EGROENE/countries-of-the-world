@@ -32,6 +32,11 @@ const disableDarkMode = () => {
 
 if (darkMode === "enabled") {
   enableDarkMode();
+  sun.style.opacity = "0.4";
+  moon.style.opacity = "1";
+} else {
+  sun.style.opacity = "1";
+  moon.style.opacity = "0.4";
 }
 
 darkModeToggle.addEventListener("click", () => {
