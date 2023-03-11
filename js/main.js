@@ -28,13 +28,26 @@ async function getCountries() {
 
   for (let country of mainArray) {
     // Set country's currency dataset value:
-    let currencies = Object.values(country.currencies);
-    let currencyNames = currencies.map((currency) =>
-      currency.name.toLowerCase()
-    );
-    let currencyDataset = currencyNames.map((currencyName) =>
-      currencyName.replace(/\s/g, "-")
-    );
+    let currencyDataset = "NONE";
+    if (country.currencies) {
+      let currencies = Object.values(country.currencies);
+      let currencyNames = currencies.map((currency) =>
+        currency.name.toLowerCase()
+      );
+      currencyDataset = currencyNames.map((currencyName) =>
+        currencyName.replace(/\s/g, "-")
+      );
+    }
+
+    let subregion = "NONE";
+    if (country.subregion) {
+      subregion = country.subregion;
+    }
+
+    let capital = "NONE";
+    if (country.capital) {
+      capital = country.capital;
+    }
 
     // Set country's languages dataset value:
     let languages = Object.values(country.languages);
@@ -53,9 +66,9 @@ async function getCountries() {
       " data-region=" +
       country.region.toLowerCase() +
       " data-subregion=" +
-      country.subregion.toLowerCase() +
+      subregion.toLowerCase() +
       " data-capital=" +
-      country.capital.toString().toLowerCase() +
+      capital.toString().toLowerCase() +
       " data-population=" +
       String(country.population) +
       " data-currencies=" +
@@ -78,13 +91,13 @@ async function getCountries() {
       country.region +
       "</p>" +
       "<p>Subregion: " +
-      country.subregion +
+      subregion +
       "</p>" +
       "<p>Population: " +
       country.population.toLocaleString() +
       "</p>" +
       "<p>Capital: " +
-      country.capital.toString() +
+      capital.toString() +
       "</p>" +
       "</div>" +
       "</a>";
