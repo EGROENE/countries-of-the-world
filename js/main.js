@@ -102,6 +102,8 @@ async function getCountries() {
       country.name.common.toLowerCase() +
       " data-region=" +
       country.region.toLowerCase() +
+      " data-subregion=" +
+      country.subregion.toLowerCase() +
       " data-capital=" +
       country.capital.toString().toLowerCase() +
       " data-population=" +
@@ -124,6 +126,9 @@ async function getCountries() {
       "</header>" +
       "<p>Region: " +
       country.region +
+      "</p>" +
+      "<p>Subregion: " +
+      country.subregion +
       "</p>" +
       "<p>Population: " +
       country.population.toLocaleString() +
