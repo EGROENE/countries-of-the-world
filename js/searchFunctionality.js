@@ -22,6 +22,7 @@ searchInput.addEventListener("keyup", (e) => {
       if (
         country.dataset.name.toLowerCase().trim().includes(value) ||
         country.dataset.region.toLowerCase().trim().includes(value) ||
+        country.dataset.subregion.toLowerCase().trim().includes(value) ||
         country.dataset.capital
           .toString()
           .toLowerCase()
