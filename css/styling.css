@@ -1,3 +1,4 @@
+/* Default styling */
 :root {
     --size-4: 0.25rem;
     --size-8: 0.5rem;
@@ -161,6 +162,7 @@ border-radius: 34px;
 border-radius: 50%;
 }
 
+/* Homepage styling */
 #homepage-functions-container {
     display: flex;
     align-items: center;
@@ -251,3 +253,5 @@ border-radius: 50%;
     font-family: var(--header-font);
     font-size: var(--size-32);
 }
+
+/* Styling for country pages */
