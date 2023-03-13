@@ -97,19 +97,29 @@ async function getCountries() {
       country.name.common +
       "</header>" +
       "<p>Region: " +
+      "<span>" +
       country.region +
+      "</span>" +
       "</p>" +
       "<p>Subregion: " +
+      "<span>" +
       subregion +
+      "</span>" +
       "</p>" +
       "<p>Population: " +
+      "<span>" +
       country.population.toLocaleString() +
+      "</span>" +
       "</p>" +
       "<p>Capital(s): " +
+      "<span>" +
       capital.toString() +
+      "</span>" +
       "</p>" +
       "<p>Language(s): " +
+      "<span>" +
       languages +
+      "</span>" +
       "</p>" +
       "</div>" +
       "</a>";
