@@ -9,7 +9,7 @@ async function getCountries() {
   // Add data from API to mainArray, which will be used to populate homepage:
   let mainArray = [];
   //for (let i = 0; i < allCountriesArray.length; i++) {
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 100; i++) {
     mainArray.push(allCountriesArray[i]);
   }
   // Sort countries alphabetically before displaying on homepage:
@@ -50,9 +50,12 @@ async function getCountries() {
     }
 
     // Set country's languages dataset value:
-    let languages = Object.values(country.languages);
-    languages = languages.map((language) => language.toLowerCase());
-    let languagesDataset = languages.join("-");
+    let languagesDataset = "NONE";
+    if (country.languages) {
+      let languages = Object.values(country.languages);
+      languages = languages.map((language) => language.toLowerCase());
+      languagesDataset = languages.join("-");
+    }
 
     // Populate homepage:
     let allCountriesArea = document.getElementById("all-countries-container");
