@@ -71,7 +71,7 @@ async function getCountries() {
       '.html" class="country-card" title="Click to learn more about ' +
       country.name.common +
       '!" data-name=' +
-      country.name.common.toLowerCase().replace(/\s/g, "-") +
+      country.name.official.toLowerCase().replace(/\s/g, "-") +
       " data-region=" +
       country.region.toLowerCase().replace(/\s/g, "-") +
       " data-subregion=" +
