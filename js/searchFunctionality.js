@@ -25,7 +25,12 @@ searchInput.addEventListener("keyup", (e) => {
         resultsMessage.textContent = "";
       });
       if (
-        country.dataset.name
+        country.dataset.fullName
+          .toLowerCase()
+          .replace(/-/g, " ")
+          .trim()
+          .includes(value.trim()) ||
+        country.dataset.commonName
           .toLowerCase()
           .replace(/-/g, " ")
           .trim()
