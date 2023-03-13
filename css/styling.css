@@ -34,8 +34,9 @@ body {
 }
 
 h1 {
-    color: white;
+    color: var(--text-color);
     font-family: var(--header-font);
+    margin-bottom: 0;
 }
 
 header {
@@ -252,6 +253,14 @@ border-radius: 50%;
 .country-card header {
     font-family: var(--header-font);
     font-size: var(--size-32);
+}
+
+.country-card-text-container p {
+    font-weight: 700;
+}
+
+.country-card-text-container span {
+    font-weight: 400;
 }
 
 /* Styling for country pages */
