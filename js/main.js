@@ -44,7 +44,7 @@ async function getCountries() {
       subregion = country.subregion;
     }
 
-    let capital = "NONE";
+    let capital = ["NONE"];
     if (country.capital) {
       capital = country.capital;
     }
@@ -99,8 +99,8 @@ async function getCountries() {
       "<p>Population: " +
       country.population.toLocaleString() +
       "</p>" +
-      "<p>Capital: " +
-      capital.toString() +
+      "<p>Capital(s): " +
+      capital.join(", ") +
       "</p>" +
       "</div>" +
       "</a>";
