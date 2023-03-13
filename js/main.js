@@ -44,17 +44,22 @@ async function getCountries() {
       subregion = country.subregion;
     }
 
+    let capitalDataset = "NONE";
     let capital = ["NONE"];
     if (country.capital) {
       capital = country.capital;
+      capitalDataset = capital.map((capital) => capital.toLowerCase());
+      capitalDataset = capitalDataset.join("-").replace(/\s/g, "-");
     }
 
     // Set country's languages dataset value:
     let languagesDataset = "NONE";
+    let languages = "NONE";
     if (country.languages) {
-      let languages = Object.values(country.languages);
-      languages = languages.map((language) => language.toLowerCase());
-      languagesDataset = languages.join("-");
+      languages = Object.values(country.languages);
+      languagesDataset = languages.map((language) => language.toLowerCase());
+      languagesDataset = languagesDataset.join("-").replace(/\s/g, "-");
+      languages = languages.join(", ");
     }
 
     // Populate homepage:
@@ -65,13 +70,13 @@ async function getCountries() {
       '.html" class="country-card" title="Click to learn more about ' +
       country.name.common +
       '!" data-name=' +
-      country.name.common.toLowerCase() +
+      country.name.common.toLowerCase().replace(/\s/g, "-") +
       " data-region=" +
-      country.region.toLowerCase() +
+      country.region.toLowerCase().replace(/\s/g, "-") +
       " data-subregion=" +
-      subregion.toLowerCase() +
+      subregion.toLowerCase().replace(/\s/g, "-") +
       " data-capital=" +
-      capital.toString().toLowerCase() +
+      capitalDataset +
       " data-population=" +
       String(country.population) +
       " data-currencies=" +
@@ -100,7 +105,10 @@ async function getCountries() {
       country.population.toLocaleString() +
       "</p>" +
       "<p>Capital(s): " +
-      capital.join(", ") +
+      capital.toString() +
+      "</p>" +
+      "<p>Language(s): " +
+      languages +
       "</p>" +
       "</div>" +
       "</a>";
