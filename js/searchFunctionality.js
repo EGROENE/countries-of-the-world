@@ -4,6 +4,7 @@ const clearSearchboxButton = document.getElementById("clear-searchbox");
 
 searchInput.addEventListener("keyup", (e) => {
   let value = e.target.value.trim().toLowerCase();
+  console.log(value);
 
   const displayedCountries = document.querySelectorAll(".country-card");
 
@@ -13,6 +14,8 @@ searchInput.addEventListener("keyup", (e) => {
 
   if (value && value.trim().length > 0) {
     for (let country of displayedCountries) {
+      //console.log(country.dataset.name.replace(/-/g, ""));
+      console.log(country.dataset.name.toLowerCase().replace(/-/g, " ").trim());
       clearSearchboxButton.addEventListener("click", () => {
         totalResults = 0;
         searchInput.value = "";
@@ -20,7 +23,11 @@ searchInput.addEventListener("keyup", (e) => {
         resultsMessage.textContent = "";
       });
       if (
-        country.dataset.name.toLowerCase().trim().includes(value) ||
+        country.dataset.name
+          .toLowerCase()
+          .replace(/-/g, " ")
+          .trim()
+          .includes(value) ||
         country.dataset.region.toLowerCase().trim().includes(value) ||
         country.dataset.subregion.toLowerCase().trim().includes(value) ||
         country.dataset.capital
@@ -30,7 +37,11 @@ searchInput.addEventListener("keyup", (e) => {
           .includes(value) ||
         country.dataset.population.includes(value) ||
         country.dataset.currencies.includes(value) ||
-        country.dataset.languages.includes(value)
+        country.dataset.languages
+          .toLowerCase()
+          .replace(/-/g, " ")
+          .trim()
+          .includes(value)
       ) {
         // display cards that pass above criteria
         country.style.display = "flex";
