@@ -3,8 +3,12 @@ const searchInput = document.getElementById("search-input");
 const clearSearchboxButton = document.getElementById("clear-searchbox");
 
 searchInput.addEventListener("keyup", (e) => {
-  let value = e.target.value.trim().toLowerCase();
-  console.log(value);
+  let value = e.target.value;
+  if (value[value.length - 1] === " " && value[value.length - 2] === " ") {
+    value = value.slice(0, -1);
+    searchInput.value = value;
+  }
+  value.toLowerCase();
 
   const displayedCountries = document.querySelectorAll(".country-card");
 
@@ -14,8 +18,6 @@ searchInput.addEventListener("keyup", (e) => {
 
   if (value && value.trim().length > 0) {
     for (let country of displayedCountries) {
-      //console.log(country.dataset.name.replace(/-/g, ""));
-      console.log(country.dataset.name.toLowerCase().replace(/-/g, " ").trim());
       clearSearchboxButton.addEventListener("click", () => {
         totalResults = 0;
         searchInput.value = "";
@@ -27,21 +29,21 @@ searchInput.addEventListener("keyup", (e) => {
           .toLowerCase()
           .replace(/-/g, " ")
           .trim()
-          .includes(value) ||
-        country.dataset.region.toLowerCase().trim().includes(value) ||
-        country.dataset.subregion.toLowerCase().trim().includes(value) ||
+          .includes(value.trim()) ||
+        country.dataset.region.toLowerCase().trim().includes(value.trim()) ||
+        country.dataset.subregion.toLowerCase().trim().includes(value.trim()) ||
         country.dataset.capital
           .toString()
-          .toLowerCase()
+          .replace(/-/g, " ")
           .trim()
-          .includes(value) ||
-        country.dataset.population.includes(value) ||
-        country.dataset.currencies.includes(value) ||
+          .includes(value.trim()) ||
+        country.dataset.population.includes(value.trim()) ||
+        country.dataset.currencies.replace(/-/g, " ").includes(value.trim()) ||
         country.dataset.languages
           .toLowerCase()
           .replace(/-/g, " ")
           .trim()
-          .includes(value)
+          .includes(value.trim())
       ) {
         // display cards that pass above criteria
         country.style.display = "flex";
