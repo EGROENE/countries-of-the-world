@@ -50,6 +50,7 @@ async function getCountries() {
       capital = country.capital;
       capitalDataset = capital.map((capital) => capital.toLowerCase());
       capitalDataset = capitalDataset.join("-").replace(/\s/g, "-");
+      capital = capital.join(", ");
     }
 
     // Set country's languages dataset value:
