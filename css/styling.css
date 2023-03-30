@@ -303,7 +303,7 @@ border-radius: 50%;
     width: 90%;
     max-width: 90%;
     background-color: var(--country-page-text-bg);
-    padding: 5rem 1rem;
+    padding: 4rem 1rem;
 }
 
 #info-flag-container img {
