@@ -17,11 +17,13 @@
     --header-font: 'Timmana', sans-serif;
     --body-font: 'Mukta Mahee', sans-serif;
     --text-color: black;
-    --theme-color-one: #1985a1;
+    /* --theme-color-one: #1985a1; */
+    --theme-color-one: #0fe9b2;
     --theme-color-two: #4c5c68;
     --theme-color-three: #46494c;
     --theme-color-four: #dcdcdd;
     --theme-color-five: #c7c7c7;
+    --country-page-text-bg:rgba(255,255,255,0.7);
 }
 
 body {
@@ -32,6 +34,7 @@ body {
 .dark-mode {
     color: white;
     background-color: var(--theme-color-two);
+    --country-page-text-bg:rgba(0,0,0,0.7);
     --text-color: white;
 }
 
@@ -225,7 +228,7 @@ border-radius: 50%;
 .country-card {
     display: flex;
     flex-direction: column;
-    border: var(--size-4) solid var(--text-color);
+    border: var(--size-4) solid var(--theme-color-one);
     text-align: left;
     font-family: var(--body-font);
 }
@@ -249,7 +252,7 @@ border-radius: 50%;
     height: 11rem;
     max-width: 100%;
     max-height: 100%;
-    border-bottom: 4px solid var(--text-color);
+    border-bottom: var(--size-4) solid var(--theme-color-one);
 }
 
 .country-card-text-container {
@@ -270,3 +273,60 @@ border-radius: 50%;
 }
 
 /* Styling for country pages */
+#country-page-headers-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 90%;
+    background-color: var(--country-page-text-bg);
+    padding: 1rem;
+    margin: 1rem auto;
+}
+
+#country-page-headers-container header {
+    font-size: var(--size-36);
+    background-color: var(--body-font);
+    height: 2.6rem;
+}
+
+#country-page-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#info-flag-container {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 90%;
+    background-color: var(--country-page-text-bg);
+    padding: 5rem 1rem;
+}
+
+#info-flag-container img {
+    border: var(--size-4) solid var(--theme-color-one);
+    width: 25rem;
+}
+
+#country-info-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#country-facts-container {
+    text-align: right;
+    font-size: var(--size-20);
+    text-transform: uppercase;
+}
+
+#country-facts-container p {
+    font-weight: 700;
+}
+
+#country-facts-container span {
+    font-weight: 400;
+}
