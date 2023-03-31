@@ -29,6 +29,7 @@
 body {
     color: black;
     background-color: var(--theme-color-four);
+    background-size: 1900px 900px;
 }
 
 .dark-mode {
@@ -75,9 +76,20 @@ p {
     align-items: center;
 }
 
+.site-header-logo-container:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
 .site-header-logo-container i {
     font-size: var(--size-32);
     padding: var(--size-16);
+}
+
+.site-header-logo-container header {
+    height: var(--size-48);
+    font-size: var(--size-32);
+    line-height: var(--size-64);
 }
 
 .site-header-functions-container {
@@ -308,7 +320,7 @@ border-radius: 50%;
 
 #info-flag-container img {
     border: var(--size-4) solid var(--theme-color-one);
-    width: 25rem;
+    width: 28rem;
 }
 
 #country-info-container {
@@ -329,4 +341,16 @@ border-radius: 50%;
 
 #country-facts-container span {
     font-weight: 400;
+}
+
+#country-facts-container a {
+    color: var(--text-color);
+    font-family: var(--body-font);
+    text-decoration: underline;
+}
+
+#country-facts-container a:hover {
+    cursor: pointer;
+    color: var(--theme-color-one);
+    transition: 200ms;
 }
