@@ -126,5 +126,18 @@ async function getCountries() {
       "</div>" +
       "</a>";
   }
+
+  let searchContainer = document.getElementById("search-container");
+  searchContainer.innerHTML +=
+    '<div id="search-box">' +
+    '<input id="search-input" type="text" placeholder="Search countries" title="Search by English name, region, subregion, capital, population, currency, or language">' +
+    '<i class="fas fa-times" id="clear-searchbox"></i>' +
+    "</div>" +
+    '<p id="results-message"></p>';
+
+  let filterContainer = document.getElementById("filter-container");
+  filterContainer.innerHTML +=
+    '<button id="show-filters-btn">Filter by Region</button>' +
+    '<div id="dropdown-content"></div>';
 }
 getCountries();
