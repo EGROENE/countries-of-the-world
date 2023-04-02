@@ -3,14 +3,20 @@
 const addFilterFunctionality = () => {
   // Get HTML Collection of countries displayed on homepage:
   // Maybe make this into a function to be called when updating DOM
-  let countriesInDOM = document.getElementById(
-    "all-countries-container"
-  ).children;
-  console.log(countriesInDOM);
+  let countriesInDOM;
+  let countriesInDOMArray;
+  const getDOMElems = () => {
+    countriesInDOM = document.getElementById(
+      "all-countries-container"
+    ).children;
+    console.log(countriesInDOM);
 
-  // Create array of all displayed countries:
-  let countriesInDOMArray = [...countriesInDOM];
-  console.log(countriesInDOMArray);
+    // Create array of all displayed countries:
+    countriesInDOMArray = [...countriesInDOM];
+    console.log(countriesInDOMArray);
+    return countriesInDOMArray;
+  };
+  getDOMElems();
 
   // Function to alphabetize DOM elements on page by country.name.common:
 
@@ -99,25 +105,19 @@ const addFilterFunctionality = () => {
     getCheckedFilters();
     getCheckedFilterRegions();
 
+    // Get countries' DOM container (their parent):
     const countriesDOMContainer = document.getElementById(
       "all-countries-container"
     );
     console.log(countriesDOMContainer);
-    const countriesDOMContainerChildrenArray = Array.from(
-      countriesDOMContainer.children
-    );
-    console.log(countriesDOMContainerChildrenArray);
+
     // Remove from DOM:
-    for (let country of countriesDOMContainerChildrenArray) {
+    for (let country of countriesInDOMArray) {
       if (!checkedFilterRegions.includes(country.dataset.region)) {
-        console.log(country);
         countriesDOMContainer.removeChild(country);
-        console.log(countriesDOMContainer);
-        console.log(countriesInDOMArray);
+        getDOMElems();
       }
     }
-    console.log(countriesDOMContainer);
-    console.log(countriesDOMContainer.children);
 
     // Add back to DOM:
 
