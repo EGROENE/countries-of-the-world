@@ -2,6 +2,7 @@
 
 const addFilterFunctionality = () => {
   // Get HTML Collection of countries displayed on homepage:
+  // Maybe make this into a function to be called when updating DOM
   let countriesInDOM = document.getElementById(
     "all-countries-container"
   ).children;
@@ -10,6 +11,8 @@ const addFilterFunctionality = () => {
   // Create array of all displayed countries:
   let countriesInDOMArray = [...countriesInDOM];
   console.log(countriesInDOMArray);
+
+  // Function to alphabetize DOM elements on page by country.name.common:
 
   // Create array of unique country regions:
   let regionsInDOMArray = [];
@@ -96,16 +99,30 @@ const addFilterFunctionality = () => {
     getCheckedFilters();
     getCheckedFilterRegions();
 
-    // Hide country cards whose region is not included in checkedFilterRegions:
-    // Done in lieu of removing/adding from DOM, so that alphabetical order is not messed up if filtered-out countries are added back.
-    for (let country of countriesInDOMArray) {
-      // If array of regions of checked filters doesn't include a country's region, hide that country. If so, display it:
+    const countriesDOMContainer = document.getElementById(
+      "all-countries-container"
+    );
+    console.log(countriesDOMContainer);
+    const countriesDOMContainerChildrenArray = Array.from(
+      countriesDOMContainer.children
+    );
+    console.log(countriesDOMContainerChildrenArray);
+    // Remove from DOM:
+    for (let country of countriesDOMContainerChildrenArray) {
       if (!checkedFilterRegions.includes(country.dataset.region)) {
-        country.style.display = "none";
-      } else {
-        country.style.display = "flex";
+        console.log(country);
+        countriesDOMContainer.removeChild(country);
+        console.log(countriesDOMContainer);
+        console.log(countriesInDOMArray);
       }
     }
+    console.log(countriesDOMContainer);
+    console.log(countriesDOMContainer.children);
+
+    // Add back to DOM:
+
+    // Delete from DOM / add to DOM
+    // Auto alphabetize DOM elements upon change of any filter (call a yet-to-be-defined function to do this, in this function)
   };
 
   // Add updateCheckedRegionsArray event listener for each checkbox:
@@ -117,4 +134,4 @@ const addFilterFunctionality = () => {
   }
 };
 // Give API time to display country cards:
-setTimeout(addFilterFunctionality, 6000);
+setTimeout(addFilterFunctionality, 3000);
