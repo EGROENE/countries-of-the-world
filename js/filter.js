@@ -21,6 +21,7 @@ const addFilterFunctionality = () => {
   // Function to alphabetize DOM elements on page by country.name.common:
 
   // Create array of unique country regions:
+  // MAYBE USE A METHOD HERE (filter, map, etc) TO MAKE THIS MORE CONCISE
   let regionsInDOMArray = [];
   for (let country of countriesInDOMArray) {
     if (!regionsInDOMArray.includes(country.dataset.region)) {
@@ -92,6 +93,8 @@ const addFilterFunctionality = () => {
   };
   getCheckedFilterRegions();
 
+  let removedCountries = [];
+
   // Function to get checked filters & put their regions into an array.
   // Should happen at the same time, so best to put them into a single function, as follows.
   const updateDOMAfterFiltering = () => {
@@ -114,14 +117,27 @@ const addFilterFunctionality = () => {
     // Remove from DOM:
     for (let country of countriesInDOMArray) {
       if (!checkedFilterRegions.includes(country.dataset.region)) {
+        removedCountries.push(country);
         countriesDOMContainer.removeChild(country);
         getDOMElems();
       }
     }
+    console.log(removedCountries);
+    console.log(checkedFilterRegions);
 
     // Add back to DOM:
+    // Collecting removed cards will likely be necessary. Then, this array will be used to add these back to the DOM.
+    for (let country of removedCountries) {
+      if (checkedFilterRegions.includes(country.dataset.region)) {
+        removedCountries = removedCountries.filter(
+          (country) => !checkedFilterRegions.includes(country.dataset.region)
+        );
+        countriesDOMContainer.appendChild(country);
+        getDOMElems();
+      }
+    }
+    console.log(removedCountries);
 
-    // Delete from DOM / add to DOM
     // Auto alphabetize DOM elements upon change of any filter (call a yet-to-be-defined function to do this, in this function)
   };
 
