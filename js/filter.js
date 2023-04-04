@@ -114,6 +114,9 @@ const addFilterFunctionality = () => {
     );
     console.log(countriesDOMContainer);
 
+    // Get array of countries in DOM:
+    // This can be iterated through & alphabetized
+
     // Remove from DOM:
     for (let country of countriesInDOMArray) {
       if (!checkedFilterRegions.includes(country.dataset.region)) {
@@ -133,10 +136,27 @@ const addFilterFunctionality = () => {
           (country) => !checkedFilterRegions.includes(country.dataset.region)
         );
         countriesDOMContainer.appendChild(country);
+        console.log(countriesInDOMArray);
         getDOMElems();
       }
     }
     console.log(removedCountries);
+    console.log(countriesInDOMArray);
+    // Sort countries alphabetically before displaying them again on homepage:
+    countriesInDOMArray
+      .sort(function (a, b) {
+        if (a.dataset.commonName < b.dataset.commonName) {
+          return -1;
+        }
+        if (a.dataset.commonName > b.dataset.commonName) {
+          return 1;
+        }
+        return 0;
+      })
+      .forEach(function (country) {
+        countriesDOMContainer.appendChild(country);
+      });
+    console.log(countriesInDOMArray);
 
     // Auto alphabetize DOM elements upon change of any filter (call a yet-to-be-defined function to do this, in this function)
   };
