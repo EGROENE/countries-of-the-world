@@ -1,40 +1,27 @@
-// Everything is put into one function so that this function can be called in a setTimeout function, which allows for the retrieval of data from the API & the consequent populating of the homepage.
+/* Everything is put into one function so that this function can be called in a setTimeout function, which allows for the retrieval of data from the API & the consequent populating of the homepage. */
 
 const addFilterFunctionality = () => {
   // Get HTML Collection of countries displayed on homepage:
-  // Maybe make this into a function to be called when updating DOM
   let countriesInDOM;
   let countriesInDOMArray;
   const getDOMElems = () => {
     countriesInDOM = document.getElementById(
       "all-countries-container"
     ).children;
-    console.log(countriesInDOM);
 
     // Create array of all displayed countries:
     countriesInDOMArray = [...countriesInDOM];
-    console.log(countriesInDOMArray);
     return countriesInDOMArray;
   };
   getDOMElems();
 
-  // Function to alphabetize DOM elements on page by country.name.common:
-
   // Create array of unique country regions:
-  // MAYBE USE A METHOD HERE (filter, map, etc) TO MAKE THIS MORE CONCISE
   let regionsInDOMArray = [];
   for (let country of countriesInDOMArray) {
     if (!regionsInDOMArray.includes(country.dataset.region)) {
       regionsInDOMArray.push(country.dataset.region);
     }
   }
-  console.log(regionsInDOMArray);
-
-  // Get total countries inside of DOM that pertain to each region:
-  const allRegionsOfDisplayedCountries = countriesInDOMArray.map(
-    (country) => country.dataset.region
-  );
-  console.log(allRegionsOfDisplayedCountries);
 
   // Create a dropdown item for every region in regionsInDOMArray:
   const dropdownOptionsArea = document.getElementById("dropdown-content");
@@ -49,11 +36,7 @@ const addFilterFunctionality = () => {
       "' type='checkbox' checked></input></div>";
   }
 
-  //const checkedFilterOptions = dropdownOptionsDOMElems.map(option => )
-
-  // Function that removes region from array if unchecked:
-
-  // When the user clicks on the button, toggle between hiding and showing the dropdown content
+  // Function for when the user clicks on the button, toggle between hiding and showing the dropdown content:
   const showFiltersBtn = document.getElementById("show-filters-btn");
   function showFilterOptions() {
     if (dropdownOptionsArea.style.display === "flex") {
@@ -62,41 +45,39 @@ const addFilterFunctionality = () => {
       dropdownOptionsArea.style.display = "flex";
     }
   }
+  // Add function to show/hide filter options, to button, so when it's clicked, the display toggles:
   showFiltersBtn.addEventListener("click", showFilterOptions);
 
-  // Create array of all options that are checked:
+  // Create array of all filter options (their HTML):
   const dropdownOptionsDOMElems =
     document.getElementById("dropdown-content").children;
-
   const dropdownOptionsDOMElemsArray = [...dropdownOptionsDOMElems];
   console.log(dropdownOptionsDOMElemsArray);
 
-  // Get checkedFilters into an array:
+  // Get checked filter options into an array:
   let checkedFilters;
   const getCheckedFilters = () => {
     checkedFilters = dropdownOptionsDOMElemsArray.filter(
       (elem) => elem.children[1].checked === true
     );
-    console.log(checkedFilters);
     return checkedFilters;
   };
   getCheckedFilters();
 
-  // Get region of each checked filter into an array:
+  // Get region of each checked filter option into an array:
   let checkedFilterRegions;
   const getCheckedFilterRegions = () => {
     checkedFilterRegions = checkedFilters.map(
       (filter) => filter.dataset.region
     );
-    console.log(checkedFilterRegions);
     return checkedFilterRegions;
   };
   getCheckedFilterRegions();
 
+  // Initialize an array that will contain HTML of each country card that has been removed by the filter:
   let removedCountries = [];
 
-  // Function to get checked filters & put their regions into an array.
-  // Should happen at the same time, so best to put them into a single function, as follows.
+  // Function to update the DOM of the homepage when removing/re-adding country cards w/ the filter:
   const updateDOMAfterFiltering = () => {
     // Delete anything the user typed into search bar:
     const resultsMessage = document.getElementById("results-message");
@@ -112,37 +93,32 @@ const addFilterFunctionality = () => {
     const countriesDOMContainer = document.getElementById(
       "all-countries-container"
     );
-    console.log(countriesDOMContainer);
-
-    // Get array of countries in DOM:
-    // This can be iterated through & alphabetized
 
     // Remove from DOM:
     for (let country of countriesInDOMArray) {
+      // If a country's region is not in the checked filters' regions, push it to array containing removed countries, then remove it from DOM:
       if (!checkedFilterRegions.includes(country.dataset.region)) {
         removedCountries.push(country);
         countriesDOMContainer.removeChild(country);
+        // Get updated DOM elements (after certain country has been removed):
         getDOMElems();
       }
     }
-    console.log(removedCountries);
-    console.log(checkedFilterRegions);
 
     // Add back to DOM:
-    // Collecting removed cards will likely be necessary. Then, this array will be used to add these back to the DOM.
     for (let country of removedCountries) {
+      // If a country's region is in the checked filters' regions, remove country from removed countries array, then re-add it to DOM:
       if (checkedFilterRegions.includes(country.dataset.region)) {
+        // Update removed countries array, in that, after the checked filter regions array is updated, the removed countries array contains only the countries whose regions are not inside the checked filter regions array.
         removedCountries = removedCountries.filter(
           (country) => !checkedFilterRegions.includes(country.dataset.region)
         );
+        // Re-add the previously removed country back to the homepage:
         countriesDOMContainer.appendChild(country);
-        console.log(countriesInDOMArray);
         getDOMElems();
       }
     }
-    console.log(removedCountries);
-    console.log(countriesInDOMArray);
-    // Sort countries alphabetically before displaying them again on homepage:
+    // Sort countries alphabetically, then display them again on homepage:
     countriesInDOMArray
       .sort(function (a, b) {
         if (a.dataset.commonName < b.dataset.commonName) {
@@ -153,12 +129,9 @@ const addFilterFunctionality = () => {
         }
         return 0;
       })
-      .forEach(function (country) {
+      .forEach((country) => {
         countriesDOMContainer.appendChild(country);
       });
-    console.log(countriesInDOMArray);
-
-    // Auto alphabetize DOM elements upon change of any filter (call a yet-to-be-defined function to do this, in this function)
   };
 
   // Add updateCheckedRegionsArray event listener for each checkbox:
