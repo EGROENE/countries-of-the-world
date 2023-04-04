@@ -39,6 +39,7 @@ addSearchFunctionality = () => {
           country.dataset.region.toLowerCase().trim().includes(value.trim()) ||
           country.dataset.subregion
             .toLowerCase()
+            .replace(/-/g, " ")
             .trim()
             .includes(value.trim()) ||
           country.dataset.capital
