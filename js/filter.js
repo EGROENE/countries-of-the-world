@@ -15,6 +15,17 @@ const addFilterFunctionality = () => {
   };
   getDOMElems();
 
+  // Function to create array of all regions of all countries in DOM:
+  let allRegionsOfAllCountriesInDOM;
+  const getAllRegionsOfAllCountriesInDOM = () => {
+    allRegionsOfAllCountriesInDOM = countriesInDOMArray.map(
+      (country) => country.dataset.region
+    );
+    console.log(allRegionsOfAllCountriesInDOM);
+  };
+  getAllRegionsOfAllCountriesInDOM();
+  console.log(allRegionsOfAllCountriesInDOM);
+
   // Create array of unique country regions:
   let regionsInDOMArray = [];
   for (let country of countriesInDOMArray) {
@@ -22,6 +33,7 @@ const addFilterFunctionality = () => {
       regionsInDOMArray.push(country.dataset.region);
     }
   }
+  console.log(regionsInDOMArray);
 
   // Create a dropdown item for every region in regionsInDOMArray:
   const dropdownOptionsArea = document.getElementById("dropdown-content");
@@ -31,6 +43,10 @@ const addFilterFunctionality = () => {
       region +
       "'><span>" +
       region +
+      "<span id='region-tally-" +
+      region +
+      "'>" +
+      "</span>" +
       "</span><input id='" +
       region +
       "' type='checkbox' checked></input></div>";
@@ -73,6 +89,26 @@ const addFilterFunctionality = () => {
     return checkedFilterRegions;
   };
   getCheckedFilterRegions();
+
+  // Function to update region tally for each filter option:
+  //regionTallyAreas = Array.from(regionTallyAreas);
+  const calcAndDisplayRegionTallies = (region) => {
+    let regionTally = 0;
+    for (let regionInDOM of allRegionsOfAllCountriesInDOM) {
+      if (regionInDOM === region) {
+        regionTally++;
+      }
+    }
+    let regionTallyArea = document.getElementById(`region-tally-${region}`);
+    regionTallyArea.innerHTML = " (" + regionTally + ")";
+  };
+  // Call calcRegionTallies for every country in DOM:
+  const callRegionTallies = () => {
+    for (let region of regionsInDOMArray) {
+      calcAndDisplayRegionTallies(region);
+    }
+  };
+  callRegionTallies();
 
   // Initialize an array that will contain HTML of each country card that has been removed by the filter:
   let removedCountries = [];
