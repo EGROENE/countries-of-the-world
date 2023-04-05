@@ -9,7 +9,7 @@ async function getCountries() {
   // Add data from API to mainArray, which will be used to populate homepage:
   let mainArray = [];
   //for (let i = 0; i < allCountriesArray.length; i++) {
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 12; i++) {
     mainArray.push(allCountriesArray[i]);
   }
   // Sort countries alphabetically before displaying on homepage:
@@ -137,7 +137,7 @@ async function getCountries() {
 
   let filterContainer = document.getElementById("filter-container");
   filterContainer.innerHTML +=
-    '<button id="show-filters-btn">Filter by Region</button>' +
+    '<button id="show-filters-btn">Filter by Region<i class="fas fa-chevron-down"></i></button>' +
     '<div id="dropdown-content"></div>';
 }
 getCountries();
