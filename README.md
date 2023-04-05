@@ -7,4 +7,4 @@ On each country's page, I set the background to a random image of the country, b
 
 Once I finish the homepage & each country's page, I plan to add a quiz game to the site, which tests the user's knowledge on random facts of random countries.
 
-At any time, the user may toggle between light & dark display modes. These changes are stored in the user's computer's local storage, so they will be remembered when the user opens the site again, even after closing the browser & opening the site again in the future.
+At any time, the user may toggle between light & dark display modes. These changes are stored in the user's browser's local storage, so they will be remembered when the user opens the site again, even after closing the browser & opening the site again in the future.
