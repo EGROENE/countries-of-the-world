@@ -54,10 +54,22 @@ const addFilterFunctionality = () => {
   let chevron = document.querySelector("#show-filters-btn i");
   function showFilterOptions() {
     if (dropdownOptionsArea.style.display === "flex") {
+      // Change bg color of button:
+      showFiltersBtn.style.backgroundColor = "var(--theme-color-one)";
+      // ... and its border
+      showFiltersBtn.style.border = "2px solid transparent";
+      // Add bottom margin to button:
+      showFiltersBtn.style.marginBottom = "0";
       // Flip the chevron:
       chevron.style.rotate = "0deg";
       dropdownOptionsArea.style.display = "none";
     } else {
+      // Change bg color of button:
+      showFiltersBtn.style.backgroundColor = "transparent";
+      // ... and its border
+      showFiltersBtn.style.border = "2px solid var(--text-color)";
+      // Add bottom margin to button:
+      showFiltersBtn.style.marginBottom = "3rem";
       // Flip the chevron:
       chevron.style.rotate = "180deg";
       dropdownOptionsArea.style.display = "flex";
