@@ -21,10 +21,8 @@ const addFilterFunctionality = () => {
     allRegionsOfAllCountriesInDOM = countriesInDOMArray.map(
       (country) => country.dataset.region
     );
-    console.log(allRegionsOfAllCountriesInDOM);
   };
   getAllRegionsOfAllCountriesInDOM();
-  console.log(allRegionsOfAllCountriesInDOM);
 
   // Create array of unique country regions:
   let regionsInDOMArray = [];
@@ -33,7 +31,6 @@ const addFilterFunctionality = () => {
       regionsInDOMArray.push(country.dataset.region);
     }
   }
-  console.log(regionsInDOMArray);
 
   // Create a dropdown item for every region in regionsInDOMArray:
   const dropdownOptionsArea = document.getElementById("dropdown-content");
@@ -68,7 +65,6 @@ const addFilterFunctionality = () => {
   const dropdownOptionsDOMElems =
     document.getElementById("dropdown-content").children;
   const dropdownOptionsDOMElemsArray = [...dropdownOptionsDOMElems];
-  console.log(dropdownOptionsDOMElemsArray);
 
   // Get checked filter options into an array:
   let checkedFilters;
@@ -91,33 +87,36 @@ const addFilterFunctionality = () => {
   getCheckedFilterRegions();
 
   // Function to update region tally for each filter option:
-  //regionTallyAreas = Array.from(regionTallyAreas);
   const calcAndDisplayRegionTallies = (region) => {
+    // For every unique region in DOM, initialize its tally at zero:
     let regionTally = 0;
+    // For every unique region in DOM, increase its tally for every time it occurs in the DOM:
     for (let regionInDOM of allRegionsOfAllCountriesInDOM) {
       if (regionInDOM === region) {
         regionTally++;
       }
     }
+    // Append region's tally to its filter option:
     let regionTallyArea = document.getElementById(`region-tally-${region}`);
     regionTallyArea.innerHTML = " (" + regionTally + ")";
   };
   // Call calcRegionTallies for every country in DOM:
-  const callRegionTallies = () => {
+  const calcAllRegionTallies = () => {
     for (let region of regionsInDOMArray) {
       calcAndDisplayRegionTallies(region);
     }
   };
-  callRegionTallies();
+  calcAllRegionTallies();
 
   // Initialize an array that will contain HTML of each country card that has been removed by the filter:
   let removedCountries = [];
 
   // Function to update the DOM of the homepage when removing/re-adding country cards w/ the filter:
   const updateDOMAfterFiltering = () => {
-    // Delete anything the user typed into search bar:
+    // Delete results message of any current search:
     const resultsMessage = document.getElementById("results-message");
     resultsMessage.textContent = "";
+    // Display all countries in DOM if user changes any filter:
     for (let country of countriesInDOMArray) {
       country.style.display = "flex";
     }
