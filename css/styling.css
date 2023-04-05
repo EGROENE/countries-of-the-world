@@ -16,8 +16,10 @@
     --size-64: 4rem;
     --header-font: 'Timmana', sans-serif;
     --body-font: 'Mukta Mahee', sans-serif;
+    --background-color: #dcdcdd;
+    --background-color-opposite: #4c5c68;
     --text-color: black;
-    /* --theme-color-one: #1985a1; */
+    --text-color-opposite: white;
     --theme-color-one: #0fe9b2;
     --theme-color-two: #4c5c68;
     --theme-color-three: #46494c;
@@ -28,15 +30,17 @@
 
 body {
     color: black;
-    background-color: var(--theme-color-four);
+    background-color: var(--background-color);
     background-size: 1900px 900px;
 }
 
 .dark-mode {
     color: white;
-    background-color: var(--theme-color-two);
+    --background-color: #4c5c68;
+    --background-color-opposite: #dcdcdd;
     --country-page-text-bg:rgba(0,0,0,0.7);
     --text-color: white;
+    --text-color-opposite: black;
 }
 
 h1 {
@@ -68,7 +72,7 @@ p {
     background-color: var(--theme-color-one);
     position: sticky;
     top: var(--size-8);
-    z-index: 100;
+    z-index: 200;
 }
 
 .site-header-logo-container {
@@ -184,15 +188,15 @@ border-radius: 50%;
 #homepage-functions-container {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: var(--size-16);
+    padding: 1rem;
 }
 
 #search-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 61px;
+    height: 54px;
 }
 
 #search-box {
@@ -206,8 +210,9 @@ border-radius: 50%;
     border-bottom-right-radius: 0;
     border: 3px solid var(--theme-color-one);
     font-family: var(--body-font);
-    width: 11rem;
+    width: 16rem;
     font-weight: 700;
+    font-size: var(--size-20);
 }
 
 #search-box input:focus {
@@ -216,7 +221,7 @@ border-radius: 50%;
 
 #search-box i {
     background-color: var(--theme-color-one);
-    padding: var(--size-8) var(--size-8);
+    padding: 1rem;
     border-top-right-radius: var(--size-4);
     border-bottom-right-radius: var(--size-4);
     height: 18px;
@@ -224,11 +229,93 @@ border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: var(--size-24);
 }
 
 #search-box i:hover {
     cursor: pointer;
 }
+
+#results-message {
+    font-family: var(--body-font);
+    margin-top: var(--size-8) auto;
+    font-size: var(--size-20);
+}
+
+/* Dropdown Button */
+#filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+#show-filters-btn {
+    background-color: var(--theme-color-one);
+    color: var(--text-color);
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-weight: 700;
+  }
+  
+  /* Dropdown button on hover & focus */
+  #show-filters-btn:hover, #show-filters-btn:focus {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    transition: 400ms;
+  }
+
+  #show-filters-btn i {
+    margin-left: 1rem;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  #dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--background-color-opposite);
+    min-width: 15rem;
+    z-index: 100;
+    color: var(--text-color-opposite);
+    padding: var(--size-4);
+    font-family: var(--body-font);
+    text-transform: capitalize;
+    font-size: var(--size-20);
+  }
+
+  #dropdown-content div {
+    margin: 0 4px;
+  }
+
+  #dropdown-content div input {
+    scale: 1.5;
+    margin: 0 12px;
+  }
+
+  #dropdown-content div input:hover {
+    cursor: pointer;
+  }
+
+  #dropdown-content div input:checked {
+    accent-color: var(--theme-color-one);
+    color: var(--text-color-opposite);
+  }
+  
+  /* Change color of dropdown links on hover */
+  #dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+  
 
 #all-countries-container {
     display: grid;
