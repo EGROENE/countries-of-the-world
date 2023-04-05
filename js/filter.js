@@ -51,10 +51,15 @@ const addFilterFunctionality = () => {
 
   // Function for when the user clicks on the button, toggle between hiding and showing the dropdown content:
   const showFiltersBtn = document.getElementById("show-filters-btn");
+  let chevron = document.querySelector("#show-filters-btn i");
   function showFilterOptions() {
     if (dropdownOptionsArea.style.display === "flex") {
+      // Flip the chevron:
+      chevron.style.rotate = "0deg";
       dropdownOptionsArea.style.display = "none";
     } else {
+      // Flip the chevron:
+      chevron.style.rotate = "180deg";
       dropdownOptionsArea.style.display = "flex";
     }
   }
