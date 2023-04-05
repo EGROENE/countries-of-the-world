@@ -90,6 +90,7 @@ const addFilterFunctionality = () => {
   const calcAndDisplayRegionTallies = (region) => {
     // For every unique region in DOM, initialize its tally at zero:
     let regionTally = 0;
+
     // For every unique region in DOM, increase its tally for every time it occurs in the DOM:
     for (let regionInDOM of allRegionsOfAllCountriesInDOM) {
       if (regionInDOM === region) {
@@ -100,6 +101,7 @@ const addFilterFunctionality = () => {
     let regionTallyArea = document.getElementById(`region-tally-${region}`);
     regionTallyArea.innerHTML = " (" + regionTally + ")";
   };
+
   // Call calcRegionTallies for every country in DOM:
   const calcAllRegionTallies = () => {
     for (let region of regionsInDOMArray) {
@@ -121,7 +123,10 @@ const addFilterFunctionality = () => {
       country.style.display = "flex";
     }
 
+    // Remember, getCheckedFilters() returns an array of the filter options that are checked
     getCheckedFilters();
+
+    // getCheckedFilterRegions() returns an array of the dataset.regions of checked filter options
     getCheckedFilterRegions();
 
     // Get countries' DOM container (their parent):
@@ -148,6 +153,7 @@ const addFilterFunctionality = () => {
         removedCountries = removedCountries.filter(
           (country) => !checkedFilterRegions.includes(country.dataset.region)
         );
+
         // Re-add the previously removed country back to the homepage:
         countriesDOMContainer.appendChild(country);
         getDOMElems();
