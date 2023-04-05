@@ -14,7 +14,8 @@
     --size-48: 3rem;
     --size-56: 3.5rem;
     --size-64: 4rem;
-    --header-font: 'Timmana', sans-serif;
+/*     --header-font: 'Timmana', sans-serif;
+ */    --header-font: fantasy;
     --body-font: 'Mukta Mahee', sans-serif;
     --background-color: #dcdcdd;
     --background-color-opposite: #4c5c68;
@@ -93,7 +94,7 @@ p {
 .site-header-logo-container header {
     height: var(--size-48);
     font-size: var(--size-32);
-    line-height: var(--size-64);
+    line-height: var(--size-48);
 }
 
 .site-header-functions-container {
@@ -434,10 +435,13 @@ border-radius: 50%;
     color: var(--text-color);
     font-family: var(--body-font);
     text-decoration: underline;
+    padding: 0 var(--size-8);
 }
 
 #country-facts-container a:hover {
     cursor: pointer;
-    opacity: 0.7;
     transition: 200ms;
+    color: black;
+    background-color: var(--theme-color-one);
+    text-decoration: none;
 }
