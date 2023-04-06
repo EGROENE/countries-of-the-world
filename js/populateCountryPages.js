@@ -124,6 +124,53 @@ async function getCountry() {
   let googleMapsLink = Object.values(country.maps)[0];
   console.log(googleMapsLink);
 
+  // Get bordering countries:
+  const borderCountries = country.borders;
+  console.log(borderCountries);
+
+  // Array containing search queries:
+  let searchQueries = [];
+  // Function that searches border countries by their code:
+  let searchBorderCountries;
+  const searchBorderCountriesFunction = (borderCountryCode) => {
+    searchBorderCountries =
+      "https://restcountries.com/v3.1/alpha/" + borderCountryCode;
+    searchQueries.push(searchBorderCountries);
+    console.log(searchQueries);
+  };
+  // Call search for each border country:
+  for (let borderCountryCode of borderCountries) {
+    searchBorderCountriesFunction(borderCountryCode);
+  }
+  async function getBorders() {
+    // For every query, return border country's data object:
+    let borderCountryDataObjects = [];
+    for (let query of searchQueries) {
+      let responseBorders = await fetch(query);
+      let borderCountryDataObject = await responseBorders.json();
+      console.log(borderCountryDataObject);
+      borderCountryDataObjects.push(borderCountryDataObject);
+      console.log(borderCountryDataObjects);
+      borderCountryDataObjects = borderCountryDataObjects.flat();
+      console.log(borderCountryDataObjects);
+    }
+
+    // Populate bordering countries:
+    const borderCountriesList = document.getElementById(
+      "border-countries-list"
+    );
+    for (let borderCountry of borderCountryDataObjects) {
+      borderCountriesList.innerHTML +=
+        "<a class='border-country-link' href='./" +
+        borderCountry.name.common.toLowerCase().replace(/\s/g, "-") +
+        ".html' title='Learn about '" +
+        borderCountry.name.common +
+        ">" +
+        borderCountry.name.common +
+        "</a>";
+    }
+  }
+
   // Populate country page:
   countryDataContainer.innerHTML +=
     "<div id='country-page-headers-container'>" +
@@ -134,7 +181,8 @@ async function getCountry() {
     nativeNames +
     "</header>" +
     "</div>" +
-    "<div id='info-flag-container'>" +
+    "<div id='country-body-container'>" +
+    "<div id='flag-info-container'>" +
     "<img src=" +
     country.flags.png +
     " alt='" +
@@ -172,6 +220,12 @@ async function getCountry() {
     ' target="_blank">View on Google Maps</a>' +
     "</div>" +
     "</div>" +
+    "</div>" +
+    "<div id='border-countries-container'>" +
+    "<header>Neighboring Countries: </header>" +
+    "<div id='border-countries-list'></div>" +
+    "</div>" +
     "</div>";
+  getBorders();
 }
 getCountry();
