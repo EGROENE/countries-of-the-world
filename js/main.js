@@ -9,7 +9,7 @@ async function getCountries() {
   // Add data from API to mainArray, which will be used to populate homepage:
   let mainArray = [];
   //for (let i = 0; i < allCountriesArray.length; i++) {
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 96; i++) {
     mainArray.push(allCountriesArray[i]);
   }
   // Sort countries alphabetically before displaying on homepage:
@@ -126,6 +126,28 @@ async function getCountries() {
       "</div>" +
       "</a>";
   }
+
+  const scrollToTopBtn = document.getElementById("scroll-to-top-btn");
+  scrollToTopBtn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  // Function to make 'back to top' btn appear:
+  const displayScrollToTopBtn = () => {
+    if (
+      //document.body.scrollTop > 150 ||
+      document.documentElement.scrollTop > 150
+    ) {
+      scrollToTopBtn.style.display = "inline-block";
+      scrollToTopBtn.style.position = "fixed";
+      scrollToTopBtn.style.top = "80%";
+      scrollToTopBtn.style.left = "95%";
+    } else {
+      scrollToTopBtn.style.display = "none";
+    }
+  };
+  window.onscroll = function () {
+    displayScrollToTopBtn();
+  };
 
   let searchContainer = document.getElementById("search-container");
   searchContainer.innerHTML +=
