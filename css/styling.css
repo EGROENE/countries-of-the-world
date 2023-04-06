@@ -388,14 +388,13 @@ border-radius: 50%;
 
 /* Styling for country pages */
 #country-page-headers-container {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
     width: 90%;
     max-width: 90%;
     background-color: var(--country-page-text-bg);
     padding: 1rem;
     margin: 1rem auto;
+    text-align: center;
 }
 
 #country-page-headers-container header {
