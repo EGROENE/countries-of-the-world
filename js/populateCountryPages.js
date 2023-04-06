@@ -163,9 +163,9 @@ async function getCountry() {
       borderCountriesList.innerHTML +=
         "<a class='border-country-link' href='./" +
         borderCountry.name.common.toLowerCase().replace(/\s/g, "-") +
-        ".html' title='Learn about '" +
+        ".html' title='Learn about " +
         borderCountry.name.common +
-        ">" +
+        "!'>" +
         borderCountry.name.common +
         "</a>";
     }
