@@ -185,6 +185,20 @@ border-radius: 34px;
 border-radius: 50%;
 }
 
+#scroll-to-top-btn {
+    display: none;
+    font-size: 2rem;
+    background-color: var(--theme-color-one);
+    border: none;
+    z-index: 300;
+    padding: 16px;
+}
+
+#scroll-to-top-btn:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
 /* Homepage styling */
 #homepage-functions-container {
     display: flex;
