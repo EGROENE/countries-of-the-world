@@ -127,6 +127,7 @@ async function getCountries() {
       "</a>";
   }
 
+  // Add EL to scroll-to-top button. This EL's callback function scrolls to the top of the page when the button is clicked:
   const scrollToTopBtn = document.getElementById("scroll-to-top-btn");
   scrollToTopBtn.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -145,6 +146,7 @@ async function getCountries() {
       scrollToTopBtn.style.display = "none";
     }
   };
+  // Call function to display scroll-to-top button:
   window.onscroll = function () {
     displayScrollToTopBtn();
   };
