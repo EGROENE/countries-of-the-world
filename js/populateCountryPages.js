@@ -85,8 +85,7 @@ async function getCountry() {
     console.log(currencies);
     if (currencies.length > 1) {
       currencies =
-        "<p>Currencies: " + "<span>" + currencies.join(", ") + "</span>";
-      ("</p>");
+        "<p>Currencies: " + "<span>" + currencies.join(", ") + "</span></p>";
     } else {
       currencies = "<p>Currency: " + "<span>" + currencies + "</span></p>";
     }
