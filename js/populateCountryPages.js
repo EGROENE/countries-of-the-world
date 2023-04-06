@@ -55,12 +55,16 @@ async function getCountry() {
   let nativeNames = "";
   if (country.name.nativeName) {
     nativeNames = Object.values(country.name.nativeName);
+    nativeNames = nativeNames.filter(
+      (nativeName) => nativeName.common !== country.name.common
+    );
     console.log(nativeNames);
-    nativeNames =
-      "<header>" +
-      nativeNames.map((name) => name.common).join(" | ") +
-      "</header>";
-    console.log(nativeNames);
+    if (nativeNames.length >= 1) {
+      nativeNames =
+        "<header>" +
+        nativeNames.map((nativeName) => nativeName.common).join(" | ") +
+        "</header>";
+    }
   }
 
   let demonyms = "<p>Demonyms: <span>NONE</span></p>";
