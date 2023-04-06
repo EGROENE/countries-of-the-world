@@ -56,7 +56,10 @@ async function getCountry() {
   if (country.name.nativeName) {
     nativeNames = Object.values(country.name.nativeName);
     console.log(nativeNames);
-    nativeNames = nativeNames.map((name) => name.common).join(" | ");
+    nativeNames =
+      "<header>" +
+      nativeNames.map((name) => name.common).join(" | ") +
+      "</header>";
     console.log(nativeNames);
   }
 
@@ -175,9 +178,7 @@ async function getCountry() {
     "<header>" +
     country.name.common.toUpperCase() +
     "</header>" +
-    "<header>" +
     nativeNames +
-    "</header>" +
     "</div>" +
     "<div id='country-body-container'>" +
     "<div id='flag-info-container'>" +
