@@ -106,7 +106,6 @@ async function getCountry() {
     } else {
       capital = "<p>Capital: " + "<span>" + capital + "</span>" + "</p>";
     }
-    console.log(capital);
   }
 
   let languages = "<p>Languages: <span>NONE</span></p>";
@@ -122,14 +121,13 @@ async function getCountry() {
 
   // Get link to country's Google Maps page:
   let googleMapsLink = Object.values(country.maps)[0];
-  console.log(googleMapsLink);
 
   // Get bordering countries:
-  const borderCountries = country.borders;
-  console.log(borderCountries);
+  let borderCountries = country.borders;
 
   // Array containing search queries:
   let searchQueries = [];
+
   // Function that searches border countries by their code:
   let searchBorderCountries;
   const searchBorderCountriesFunction = (borderCountryCode) => {
@@ -138,36 +136,37 @@ async function getCountry() {
     searchQueries.push(searchBorderCountries);
     console.log(searchQueries);
   };
-  // Call search for each border country:
-  for (let borderCountryCode of borderCountries) {
-    searchBorderCountriesFunction(borderCountryCode);
-  }
-  async function getBorders() {
-    // For every query, return border country's data object:
-    let borderCountryDataObjects = [];
-    for (let query of searchQueries) {
-      let responseBorders = await fetch(query);
-      let borderCountryDataObject = await responseBorders.json();
-      console.log(borderCountryDataObject);
-      borderCountryDataObjects.push(borderCountryDataObject);
-      console.log(borderCountryDataObjects);
-      borderCountryDataObjects = borderCountryDataObjects.flat();
-      console.log(borderCountryDataObjects);
-    }
 
-    // Populate bordering countries:
-    const borderCountriesList = document.getElementById(
-      "border-countries-list"
-    );
-    for (let borderCountry of borderCountryDataObjects) {
-      borderCountriesList.innerHTML +=
-        "<a class='border-country-link' href='./" +
-        borderCountry.name.common.toLowerCase().replace(/\s/g, "-") +
-        ".html' title='Learn about " +
-        borderCountry.name.common +
-        "!'>" +
-        borderCountry.name.common +
-        "</a>";
+  async function getBorders() {
+    let borderCountriesList = document.getElementById("border-countries-list");
+    if (borderCountries) {
+      // Call search for each border country:
+      for (let borderCountryCode of borderCountries) {
+        searchBorderCountriesFunction(borderCountryCode);
+      }
+
+      // For every query...
+      let borderCountryDataObjects = [];
+      for (let query of searchQueries) {
+        let responseBorders = await fetch(query);
+        let borderCountryDataObject = await responseBorders.json();
+        borderCountryDataObjects.push(borderCountryDataObject);
+        borderCountryDataObjects = borderCountryDataObjects.flat();
+      }
+
+      // Populate bordering countries:
+      for (let borderCountry of borderCountryDataObjects) {
+        borderCountriesList.innerHTML +=
+          "<a class='border-country-link' href='./" +
+          borderCountry.name.common.toLowerCase().replace(/\s/g, "-") +
+          ".html' title='Learn about " +
+          borderCountry.name.common +
+          "!'>" +
+          borderCountry.name.common +
+          "</a>";
+      }
+    } else {
+      borderCountriesList.innerHTML += "<p id='no-borders'>None</p>";
     }
   }
 
