@@ -27,6 +27,32 @@ async function getCountries() {
   console.log(mainArray);
 
   for (let country of mainArray) {
+    // Get native names into array, then use that array to add all native names to data-native-names (if country has native names):
+    let nativeNamesDataset = "NONE";
+    let nativeNamesLowercase;
+    if (country.name.nativeName) {
+      // Get array of objects, each object pertaining to country's native name in a certain language:
+      let namesInLanguage = Object.values(country.name.nativeName);
+      // Initialize array that will contain array(s) of native names (w/o keys that are present in namesInLanguage):
+      let nativeNames = [];
+      // Initialize variable that will be the flattened version of nativeNames:
+      let nativeNamesFlat;
+      // For every name in namesInLanguage, push its flattened values to nativeNames, then assign nativeNamesFlat the value of nativeNames.flat():
+      for (let name of namesInLanguage) {
+        nativeNames.push(Object.values(name).flat());
+        nativeNamesFlat = nativeNames.flat();
+      }
+      // Create an array of all the names in nativeNamesFlat in lowercase form:
+      nativeNamesLowercase = nativeNamesFlat.map((name) => name.toLowerCase());
+      // Assign nativeNamesDataset to an array of the values of nativeNamesLowerCase, in which all spaces have been replaced by hyphens:
+      nativeNamesDataset = nativeNamesLowercase.map((name) =>
+        name.replace(/\s/g, "-")
+      );
+      console.log(nativeNamesDataset);
+      // Convert array to a string, joining elements w/ a hyphen:
+      nativeNamesDataset = nativeNamesDataset.join("-");
+    }
+
     // Set country's currency dataset value:
     let currencyDataset = "NONE";
     if (country.currencies) {
@@ -74,6 +100,8 @@ async function getCountries() {
       country.name.official.toLowerCase().replace(/\s/g, "-") +
       " data-common-name=" +
       country.name.common.toLowerCase().replace(/\s/g, "-") +
+      " data-native-names=" +
+      nativeNamesDataset +
       " data-region=" +
       country.region.toLowerCase().replace(/\s/g, "-") +
       " data-subregion=" +
