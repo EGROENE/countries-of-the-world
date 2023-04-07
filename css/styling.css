@@ -398,9 +398,14 @@ border-radius: 50%;
 }
 
 #country-page-headers-container header {
-    font-size: var(--size-36);
-    background-color: var(--body-font);
+    font-size: var(--size-32);
+    font-family: var(--header-font);
     height: 2.6rem;
+}
+
+#country-page-headers-container p {
+    font-size: var(--size-16);
+    background-color: var(--body-font);
 }
 
 #country-page-main-container {
@@ -441,6 +446,7 @@ border-radius: 50%;
 
 #country-facts-container p {
     font-weight: 700;
+    max-width: 100%;
 }
 
 #country-facts-container span {
@@ -474,8 +480,8 @@ border-radius: 50%;
     background-color: var(--background-color-opposite);
     text-transform: uppercase;
     padding: var(--size-12) 0;
-    background-color: var(--background-color);
-    border: 1px solid var(--text-color);
+    background-color: var(--theme-color-two);
+    border: 1px solid var(--theme-color-one);
 }
 
 #border-countries-container header {
@@ -492,7 +498,7 @@ border-radius: 50%;
 }
 
 #border-countries-list a {
-    color: var(--text-color);
+    color: white;
 }
 
 #border-countries-list a:hover {
