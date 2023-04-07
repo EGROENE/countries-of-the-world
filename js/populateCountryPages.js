@@ -61,9 +61,9 @@ async function getCountry() {
     console.log(nativeNames);
     if (nativeNames.length >= 1) {
       nativeNames =
-        "<header>" +
+        "<p>" +
         nativeNames.map((nativeName) => nativeName.common).join(" | ") +
-        "</header>";
+        "</p>";
     }
   }
 
