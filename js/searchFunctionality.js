@@ -9,7 +9,7 @@ addSearchFunctionality = () => {
       value = value.slice(0, -1);
       searchInput.value = value;
     }
-    value.toLowerCase();
+    value = value.toLowerCase();
 
     const displayedCountries = document.querySelectorAll(".country-card");
 
@@ -36,6 +36,7 @@ addSearchFunctionality = () => {
             .replace(/-/g, " ")
             .trim()
             .includes(value.trim()) ||
+          country.dataset.nativeNames.includes(value.trim()) ||
           country.dataset.region.toLowerCase().trim().includes(value.trim()) ||
           country.dataset.subregion
             .toLowerCase()
