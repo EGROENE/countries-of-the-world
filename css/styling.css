@@ -497,16 +497,13 @@ border-radius: 50%;
     width: 75%;
 }
 
-#border-countries-list a {
+#border-countries-list a,
+#border-countries-list p {
     color: white;
+    font-size: var(--size-16);
 }
 
 #border-countries-list a:hover {
     text-decoration: underline;
     cursor: pointer;
-}
-
-#no-borders {
-    font-size: var(--size-16);
-    color: var(--text-color);
 }
