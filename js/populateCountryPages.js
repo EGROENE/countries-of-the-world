@@ -12,7 +12,13 @@ const searchAPIByCountryName = `https://restcountries.com/v3.1/name/${countryNam
 async function getCountry() {
   const response = await fetch(searchAPIByCountryName);
   let countryDataObject = await response.json();
-  country = countryDataObject[0];
+  console.log(countryDataObject);
+  for (let element of countryDataObject) {
+    console.log(element.name.common);
+    if (countryName.includes(element.name.common)) {
+      country = element;
+    }
+  }
   console.log(country);
 
   // Set BG image for country:
