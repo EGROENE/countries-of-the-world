@@ -494,7 +494,6 @@ border-radius: 50%;
     width: 75%;
     row-gap: var(--size-8);
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
