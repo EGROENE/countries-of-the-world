@@ -150,8 +150,18 @@ async function getCountry() {
   };
 
   async function getBorders() {
+    let borderCountriesContainerHeader = document.querySelector(
+      "#border-countries-container header"
+    );
     let borderCountriesList = document.getElementById("border-countries-list");
     if (borderCountries) {
+      if (borderCountries.length > 1) {
+        borderCountriesContainerHeader.innerHTML =
+          "<header>Neighboring Countries: </header>";
+      } else {
+        borderCountriesContainerHeader.innerHTML =
+          "<header>Neighboring Country: </header>";
+      }
       // Call search for each border country:
       for (let borderCountryCode of borderCountries) {
         searchBorderCountriesFunction(borderCountryCode);
@@ -230,8 +240,7 @@ async function getCountry() {
     "</div>" +
     "</div>" +
     "</div>" +
-    "<div id='border-countries-container'>" +
-    "<header>Neighboring Countries: </header>" +
+    "<div id='border-countries-container'><header>Neighboring Countries: </header>" +
     "<div id='border-countries-list'></div>" +
     "</div>" +
     "</div>";
