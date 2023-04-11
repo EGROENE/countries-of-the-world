@@ -158,9 +158,15 @@ async function getCountry() {
       if (borderCountries.length > 1) {
         borderCountriesContainerHeader.innerHTML =
           "<header>Neighboring Countries: </header>";
+        if (screen.width <= 414 && screen.width >= 360) {
+          borderCountriesList.style.justifyContent = "space-between";
+        }
       } else {
         borderCountriesContainerHeader.innerHTML =
           "<header>Neighboring Country: </header>";
+        if (screen.width <= 414 && screen.width > 0) {
+          borderCountriesList.style.justifyContent = "center";
+        }
       }
       // Call search for each border country:
       for (let borderCountryCode of borderCountries) {
