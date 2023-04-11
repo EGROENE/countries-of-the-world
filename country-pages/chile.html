@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chile</title>
+
+    <!--LINKS TO CSS-->
+    <link rel="stylesheet" href="../css/styling.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <!--LINK TO FONTAWESOME KIT-->
+    <script src="https://kit.fontawesome.com/5f2ab24bd1.js" crossorigin="anonymous"></script>
+
+    <!--LINK(S) TO GOOGLEFONTS-->
+    <link href="https://fonts.googleapis.com/css2?family=Mukta+Mahee&family=Timmana&display=swap" rel="stylesheet"></head>
+</head>
+<body>
+    <div class="site-header">
+        <a href="../index.html" class="site-header-logo-container" title="Back to Homepage">
+            <i class="fas fa-globe"></i>
+            <header>Countries of the World</header>
+        </a>
+        <div id="theme-toggler">
+            <i class="fas fa-sun" id="sun"></i>
+            <label id="switch" title="Toggle Light/Dark Themes">
+                <input type="checkbox" id="dark-mode-toggle">
+                <span id="theme-switch" class="slider round"></span>
+            </label>
+            <i class="fas fa-moon" id="moon"></i>
+        </div>
+    </div>
+    <main id="country-page-main-container"></main>
+    <script src="../js/toggleDarkMode.js"></script>
+    <script src="../js/populateCountryPages.js"></script>
+    <script>
+        if (!!window.performance && window.performance.navigation.type === 2) {
+            console.log('Reloading');
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
