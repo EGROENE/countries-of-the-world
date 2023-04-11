@@ -69,7 +69,21 @@ const addFilterFunctionality = () => {
       // ... and its border
       showFiltersBtn.style.border = "2px solid var(--text-color)";
       // Add bottom margin to button:
-      showFiltersBtn.style.marginBottom = "3rem";
+      if (screen.width <= 810 && screen.width >= 768) {
+        showFiltersBtn.style.marginBottom = "19vh";
+      } else if (screen.width <= 800 && screen.width > 601) {
+        showFiltersBtn.style.marginBottom = "16vh";
+      } else if (screen.width <= 601 && screen.width > 414) {
+        showFiltersBtn.style.marginBottom = "10vh";
+      } else if (
+        screen.width <= 414 &&
+        screen.width > 359 &&
+        screen.height > 640
+      ) {
+        showFiltersBtn.style.marginBottom = "30vh";
+      } else {
+        showFiltersBtn.style.marginBottom = "3rem";
+      }
       // Flip the chevron:
       chevron.style.rotate = "180deg";
       dropdownOptionsArea.style.display = "flex";
