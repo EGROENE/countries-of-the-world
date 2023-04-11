@@ -74,6 +74,7 @@ p {
     position: sticky;
     top: var(--size-8);
     z-index: 200;
+    padding: var(--size-16) 0;
 }
 
 .site-header-logo-container {
@@ -330,6 +331,11 @@ border-radius: 50%;
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
+
+#scroll-to-top-btn {
+    top: 80%;
+    left: 95%;
+}
   
 
 #all-countries-container {
@@ -428,6 +434,7 @@ border-radius: 50%;
 #country-body-container img {
     border: var(--size-4) solid var(--theme-color-one);
     width: 28rem;
+    height: 18rem;
 }
 
 #flag-info-container {
@@ -485,7 +492,7 @@ border-radius: 50%;
 }
 
 #border-countries-container header {
-    font-size: 24px;
+    font-size: var(--size-24);
     letter-spacing: 1px;
     text-transform: capitalize;
 }
