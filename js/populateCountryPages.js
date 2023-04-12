@@ -77,7 +77,8 @@ async function getCountry() {
 
   } */
 
-  let nativeNames = "";
+  // Get native names:
+  let nativeNames;
   if (country.name.nativeName) {
     nativeNames = Object.values(country.name.nativeName);
     nativeNames = nativeNames.filter(
@@ -92,6 +93,7 @@ async function getCountry() {
     }
   }
 
+  // Get demonyms:
   let demonyms = "<p>Demonyms: <span>NONE</span></p>";
   let maleDemonym;
   let femaleDemonym;
@@ -109,7 +111,7 @@ async function getCountry() {
     console.log(demonyms);
   }
 
-  // Set country's currency dataset value:
+  // Get currency/ies:
   let currencies = "<p>Currency: <span>NONE</span></p>";
   if (country.currencies) {
     currencies = Object.values(country.currencies);
@@ -159,16 +161,18 @@ async function getCountry() {
     subregion = "<p>Subregion: <span>" + country.subregion + "</span></p>";
   }
 
-  let capital = "Capital: <span>NONE</span>";
+  // Get capital(s):
+  let capital = "<p>Capital: <span>NONE</span></p>";
   if (country.capital) {
     capital = Object.values(country.capital);
     if (capital.length > 1) {
-      capital = "<p>Capitals: " + capital.join(", ") + "</p>";
+      capital = "<p>Capitals: <span>" + capital.join(", ") + "</span></p>";
     } else {
-      capital = "<p>Capital: " + "<span>" + capital + "</span>" + "</p>";
+      capital = "<p>Capital: <span>" + capital + "</span></p>";
     }
   }
 
+  // Get language(s):
   let languages = "<p>Languages: <span>NONE</span></p>";
   if (country.languages) {
     languages = Object.values(country.languages);
