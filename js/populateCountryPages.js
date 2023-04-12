@@ -150,6 +150,10 @@ async function getCountry() {
       "<p>Continents: <span>" + country.continents.join(", ") + "</span></p>";
   }
 
+  // Get region:
+  let region = "<p>Region: <span>" + country.region + "</span><p>";
+
+  // Get subregion:
   let subregion = "<p>Subregion: <span>NONE</span></p>";
   if (country.subregion) {
     subregion = "<p>Subregion: <span>" + country.subregion + "</span></p>";
@@ -258,11 +262,7 @@ async function getCountry() {
     "'>" +
     "<div id='country-info-container'>" +
     "<div id='country-facts-container'>" +
-    "<p>Region: " +
-    "<span>" +
-    country.region +
-    "</span>" +
-    "</p>" +
+    region +
     subregion +
     continents +
     "<span>" +
