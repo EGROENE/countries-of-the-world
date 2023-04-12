@@ -8,8 +8,8 @@ async function getCountries() {
 
   // Add data from API to mainArray, which will be used to populate homepage:
   let mainArray = [];
-  //for (let i = 0; i < allCountriesArray.length; i++) {
-  for (let i = 0; i < 96; i++) {
+  for (let i = 0; i < allCountriesArray.length; i++) {
+    //for (let i = 0; i < 4; i++) {
     mainArray.push(allCountriesArray[i]);
   }
   // Sort countries alphabetically before displaying on homepage:
@@ -48,7 +48,6 @@ async function getCountries() {
       nativeNamesDataset = nativeNamesLowercase.map((name) =>
         name.replace(/\s/g, "-")
       );
-      console.log(nativeNamesDataset);
       // Convert array to a string, joining elements w/ a hyphen:
       nativeNamesDataset = nativeNamesDataset.join("-");
     }
@@ -93,7 +92,10 @@ async function getCountries() {
     let allCountriesArea = document.getElementById("all-countries-container");
     allCountriesArea.innerHTML +=
       '<a href="./country-pages/' +
-      country.name.common.toLowerCase().replace(/\s/g, "-") +
+      country.name.common
+        .toLowerCase()
+        .replace(/[$,]/g, "")
+        .replace(/\s/g, "-") +
       '.html" class="country-card" title="Click to learn more about ' +
       country.name.common +
       '!" data-full-name=' +
@@ -168,8 +170,6 @@ async function getCountries() {
     ) {
       scrollToTopBtn.style.display = "inline-block";
       scrollToTopBtn.style.position = "fixed";
-      scrollToTopBtn.style.top = "80%";
-      scrollToTopBtn.style.left = "95%";
     } else {
       scrollToTopBtn.style.display = "none";
     }
