@@ -124,6 +124,16 @@ async function getCountry() {
   }
   console.log(currencies);
 
+  // Get country's timezones:
+  let timezones;
+  if (country.timezones.length === 1) {
+    timezones =
+      "<p>Timezone: <span>" + country.timezones.toString() + "</span></p>";
+  } else {
+    timezones =
+      "<p>Timezones: <span>" + country.timezones.join(", ") + "</span></p>";
+  }
+
   let subregion = "NONE";
   if (country.subregion) {
     subregion = country.subregion;
@@ -257,6 +267,7 @@ async function getCountry() {
     demonyms +
     languages +
     currencies +
+    timezones +
     "<a href=" +
     googleMapsLink +
     ' target="_blank">View on Google Maps</a>' +
