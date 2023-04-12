@@ -15,8 +15,16 @@ async function getCountry() {
   console.log(countryDataObject);
   for (let element of countryDataObject) {
     console.log(element.name.common);
-    if (countryName.includes(element.name.common)) {
-      country = element;
+    // If country is DR Congo, w/ official name displayed in title, set 'country' to the element from countryDataObject:
+    // Common name 'DR Congo' is not as good a header as its full official name. For all other countries, common name is fine.
+    if (countryName === "Democratic Republic of the Congo") {
+      if (element.name.official.includes(countryName)) {
+        country = element;
+      }
+    } else {
+      if (countryName.includes(element.name.common)) {
+        country = element;
+      }
     }
   }
   console.log(country);
@@ -43,6 +51,17 @@ async function getCountry() {
       'url("https://source.unsplash.com/1900x600/?' +
       country.name.common.toLowerCase() +
       '")';
+  }
+
+  // Get country name for header on country pages:
+  let countryPageHeader;
+  // If DR Congo is the country, set its official name as the header, not its common name:
+  if (country.name.common === "DR Congo") {
+    countryPageHeader =
+      "<header>" + country.name.official.toUpperCase() + "</header>";
+  } else {
+    countryPageHeader =
+      "<header>" + country.name.common.toUpperCase() + "</header>";
   }
 
   /* if (
@@ -201,9 +220,7 @@ async function getCountry() {
   // Populate country page:
   countryDataContainer.innerHTML +=
     "<div id='country-page-headers-container'>" +
-    "<header>" +
-    country.name.common.toUpperCase() +
-    "</header>" +
+    countryPageHeader +
     nativeNames +
     "</div>" +
     "<div id='country-body-container'>" +
