@@ -12,8 +12,9 @@ async function getCountry() {
   const response = await fetch(searchAPIByCountryName);
   let countryDataObject = await response.json();
   for (let element of countryDataObject) {
-    // If country is DR Congo, w/ official name displayed in title, set 'country' to the element from countryDataObject:
-    // Common name 'DR Congo' is not as good a header as its full official name. For all other countries, common name is fine.
+    // Set country to equal an element returned from API, based on search of API by the doc title (countryName).
+    // If DR Congo, check if official name includes countryName.
+    // Else, check if countryName includes the common name.
     if (countryName === "Democratic Republic of the Congo") {
       if (element.name.official.includes(countryName)) {
         country = element;
