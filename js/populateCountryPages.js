@@ -134,6 +134,12 @@ async function getCountry() {
       "<p>Timezones: <span>" + country.timezones.join(", ") + "</span></p>";
   }
 
+  // Get country's driving side:
+  let drivingSide = "NO ROADS";
+  if (country.car.side) {
+    drivingSide = "<p>Driving Side: <span>" + country.car.side + "</span></p>";
+  }
+
   let subregion = "NONE";
   if (country.subregion) {
     subregion = country.subregion;
@@ -268,6 +274,7 @@ async function getCountry() {
     languages +
     currencies +
     timezones +
+    drivingSide +
     "<a href=" +
     googleMapsLink +
     ' target="_blank">View on Google Maps</a>' +
