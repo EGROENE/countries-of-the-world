@@ -265,12 +265,7 @@ async function getCountry() {
     region +
     subregion +
     continents +
-    "<span>" +
-    "</span>" +
-    "</p>" +
-    "<p>" +
     capital +
-    "</p>" +
     "<p>Population: <span>" +
     country.population.toLocaleString() +
     "</span></p>" +
