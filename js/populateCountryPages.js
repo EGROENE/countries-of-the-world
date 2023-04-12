@@ -140,9 +140,19 @@ async function getCountry() {
     drivingSide = "<p>Driving Side: <span>" + country.car.side + "</span></p>";
   }
 
-  let subregion = "NONE";
+  // Get continent(s):
+  let continents;
+  if (country.continents.length === 1) {
+    continents =
+      "<p>Continent: <span>" + country.continents.toString() + "</span></p>";
+  } else {
+    continents =
+      "<p>Continents: <span>" + country.continents.join(", ") + "</span></p>";
+  }
+
+  let subregion = "<p>Subregion: <span>NONE</span></p>";
   if (country.subregion) {
-    subregion = country.subregion;
+    subregion = "<p>Subregion: <span>" + country.subregion + "</span></p>";
   }
 
   let capital = "Capital: <span>NONE</span>";
@@ -253,15 +263,9 @@ async function getCountry() {
     country.region +
     "</span>" +
     "</p>" +
-    "<p>" +
-    "Subregion: " +
-    "<span>" +
     subregion +
-    "</span>" +
-    "</p>" +
-    "<p>Continent(s): " +
+    continents +
     "<span>" +
-    country.continents.toString() +
     "</span>" +
     "</p>" +
     "<p>" +
