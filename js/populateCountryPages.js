@@ -5,16 +5,13 @@ const countryDataContainer = document.getElementById(
 
 // Get name of country on html page:
 const countryName = document.title;
-console.log(countryName);
 
 // Search API by countryName, return object:
 const searchAPIByCountryName = `https://restcountries.com/v3.1/name/${countryName}`;
 async function getCountry() {
   const response = await fetch(searchAPIByCountryName);
   let countryDataObject = await response.json();
-  console.log(countryDataObject);
   for (let element of countryDataObject) {
-    console.log(element.name.common);
     // If country is DR Congo, w/ official name displayed in title, set 'country' to the element from countryDataObject:
     // Common name 'DR Congo' is not as good a header as its full official name. For all other countries, common name is fine.
     if (countryName === "Democratic Republic of the Congo") {
@@ -30,13 +27,6 @@ async function getCountry() {
   console.log(country);
 
   // Set BG image for country:
-  // Maybe try 'images of' country.name.common
-  /* document.body.style.backgroundImage =
-    'url("https://source.unsplash.com/1900x600/?' +
-    country.name.common.toLowerCase().replace(/ /g, "-") +
-    "-" +
-    country.continents.toString() +
-    '")'; */
   if (country.altSpellings.length > 1) {
     document.body.style.backgroundImage =
       'url("https://source.unsplash.com/1900x600/?' +
@@ -63,19 +53,6 @@ async function getCountry() {
     countryPageHeader =
       "<header>" + country.name.common.toUpperCase() + "</header>";
   }
-
-  /* if (
-    countriesWithAccurateUnsplashImages.includes(
-      country.name.common.toLowerCase.replace(/ /g, "-")
-    )
-  ) {
-    document.body.style.backgroundImage =
-      'url("https://source.unsplash.com/1900x600/?' +
-      country.name.common.toLowerCase() +
-      '")';
-  } else {
-
-  } */
 
   // Get native names:
   let nativeNames;
@@ -108,7 +85,6 @@ async function getCountry() {
       " (f), " +
       maleDemonym +
       " (m)</span></p>";
-    console.log(demonyms);
   }
 
   // Get currency/ies:
@@ -116,7 +92,6 @@ async function getCountry() {
   if (country.currencies) {
     currencies = Object.values(country.currencies);
     currencies = currencies.map((currency) => currency.name);
-    console.log(currencies);
     if (currencies.length > 1) {
       currencies =
         "<p>Currencies: " + "<span>" + currencies.join(", ") + "</span></p>";
@@ -124,7 +99,6 @@ async function getCountry() {
       currencies = "<p>Currency: " + "<span>" + currencies + "</span></p>";
     }
   }
-  console.log(currencies);
 
   // Get country's timezones:
   let timezones;
@@ -199,7 +173,6 @@ async function getCountry() {
     searchBorderCountries =
       "https://restcountries.com/v3.1/alpha/" + borderCountryCode;
     searchQueries.push(searchBorderCountries);
-    console.log(searchQueries);
   };
 
   async function getBorders() {
