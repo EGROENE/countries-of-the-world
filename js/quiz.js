@@ -1,4 +1,6 @@
-const startQuizBtn = document.getElementById("start-quiz-btn");
+const shortVersionBtn = document.getElementById("short-version-btn");
+const fullVersionBtn = document.getElementById("full-version-btn");
+const startBtns = document.querySelectorAll("#start-btns-container button");
 const quizGreeting = document.getElementById("quiz-greeting");
 const questionArea = document.getElementById("question-area");
 
@@ -91,6 +93,8 @@ const toNext = () => {
 };
 
 // Add EL for click of start button:
-startQuizBtn.addEventListener("click", function () {
-  toNext();
-});
+for (let btn of startBtns) {
+  btn.addEventListener("click", function () {
+    toNext();
+  });
+}
