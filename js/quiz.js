@@ -72,6 +72,14 @@ let questionIndex = -1;
 // Init score:
 let score = 0;
 
+// Function to populate questionArea with a question:
+const populateQuestionArea = () => {
+  questionArea.innerHTML +=
+    "<div id='question'><header id='question-header'>" +
+    usedQuestionsArray[questionIndex].question +
+    "</header><div id='options-container'></div></div>";
+};
+
 // For every option of a given question, create a button:
 // Param should be a question. In toNext(), usedQuestionsArray[questionIndex] will be passed into it when it's called.
 const displayOptions = (currentQuestion) => {
@@ -97,29 +105,21 @@ const displayOptions = (currentQuestion) => {
 const toNext = () => {
   // Increment questionIndex by one:
   questionIndex++;
-  // If questionIndex is zero (if on first question), delete the quiz greeting from the DOM, display info for first question.
-  // Else if: handle last-question scenario. questionArea is removed from DOM, info is added to resultsArea.
-  // Else: Move from one question to another. Current question is removed from DOM, info for next Q is displayed.
+  // IF questionIndex is zero (if on first question), delete the quiz greeting from the DOM, display info for first question.
+  // ELSE IF: handle last-question scenario. questionArea is removed from DOM, info is added to resultsArea.
+  // ELSE: Move from one question to another. Current question is removed from DOM, info for next question is displayed.
   if (questionIndex === 0) {
     document.body.removeChild(document.body.children[1]);
-    // Put this part into a function, then call here:
-    questionArea.innerHTML +=
-      "<div id='question'><header id='question-header'>" +
-      usedQuestionsArray[questionIndex].question +
-      "</header><div id='options-container'></div></div>";
-    // Display answer options of next question:
+    populateQuestionArea();
+    // Display answer options:
     displayOptions(usedQuestionsArray[questionIndex]);
-  } else if (questionIndex === allQuestionsArray.length) {
+  } else if (questionIndex === usedQuestionsArray.length) {
     document.body.removeChild(document.body.children[1]);
     // Add info to resultsArea:
   } else {
     questionArea.removeChild(questionArea.firstChild);
-    // Put this part into a function, then call here:
-    questionArea.innerHTML +=
-      "<div id='question'><header id='question-header'>" +
-      usedQuestionsArray[questionIndex].question +
-      "</header><div id='options-container'></div></div>";
-    // Display answer options of next question:
+    populateQuestionArea();
+    // Display answer options:
     displayOptions(usedQuestionsArray[questionIndex]);
   }
 
