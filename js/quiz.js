@@ -101,7 +101,7 @@ const toNext = () => {
   if (questionIndex === 0) {
     // Delete quizGreeting from DOM:
     document.body.removeChild(document.body.children[1]);
-  } else if (questionIndex === allQuestionsArray.length - 1) {
+  } else if (questionIndex === allQuestionsArray.length) {
     // Last-question scenario
     // Remove questionArea from DOM:
     document.body.removeChild(document.body.children[1]);
