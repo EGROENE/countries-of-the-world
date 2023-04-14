@@ -43,7 +43,8 @@ for (let i = allQuestionsArray.length - 1; i > 0; i--) {
 }
 console.log(allQuestionsArray);
 
-// Make this a function to be called inside EL for each start btn at end of doc
+// Function to set the number of questions in game, depending on what user selects:
+// Call in EL that is applied to each of the start buttons, located towards end of this document.
 let questionsInGame;
 const getNumOfQuestions = (btn) => {
   btn.id === "play-short-version-btn"
@@ -52,8 +53,7 @@ const getNumOfQuestions = (btn) => {
   console.log(questionsInGame);
 };
 
-// Eventually, push only 10 questions to usedQuestionsArray
-// Make this a function to be called inside EL for each start btn at end of doc
+// Push appropriate number of questions to usedQuestionsArray. Questions from this array will be used in the game.
 const getUsedQuestionsArray = () => {
   for (
     let i = 0;
@@ -65,7 +65,7 @@ const getUsedQuestionsArray = () => {
   console.log(usedQuestionsArray);
 };
 
-// Init variable that tallies questions answered. Should be incremented by one every time a question is answered. Init at -1 so that index 0 of usedQuestionsArray is called on the first question, and so forth.
+// Init variable that tallies questions answered. Should be incremented by one every time a question is answered. Init at -1 so that index 0 of usedQuestionsArray is called on the first question, and so forth. Aligns w/ zero-indexing of arrays & done to avoid confusion about this.
 let questionIndex = -1;
 
 // For every option of a given question, create a button:
