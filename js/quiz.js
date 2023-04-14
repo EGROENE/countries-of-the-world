@@ -71,7 +71,8 @@ let questionIndex = 0;
 // For every option of a given question, create a button:
 // Param should be a question. In toNext(), usedQuestionsArray[questionIndex] will be passed into it when it's called.
 const displayOptions = (currentQuestion) => {
-  const currentQuestionArea = document.getElementById("question");
+  //const currentQuestionArea = document.getElementById("question");
+  const optionsContainer = document.getElementById("options-container");
 
   // Create button elem for each question option:
   let questionOptions = Object.entries(currentQuestion.options[0]);
@@ -85,7 +86,7 @@ const displayOptions = (currentQuestion) => {
     optionButton.setAttribute("id", optionRightOrWrong);
     optionButton.innerText += optionText;
     // append elem to question (inside question area):
-    currentQuestionArea.appendChild(optionButton);
+    optionsContainer.appendChild(optionButton);
   }
 };
 // Call in toNext() after populating questionArea innerHTML
@@ -105,7 +106,7 @@ const toNext = () => {
   questionArea.innerHTML +=
     "<div id='question'><header id='question-header'>" +
     usedQuestionsArray[questionIndex].question +
-    "</header></div>";
+    "</header><div id='options-container'></div></div>";
   displayOptions(usedQuestionsArray[questionIndex]);
 };
 
