@@ -109,6 +109,18 @@ const toNext = () => {
     usedQuestionsArray[questionIndex].question +
     "</header><div id='options-container'></div></div>";
   displayOptions(usedQuestionsArray[questionIndex]);
+
+  // Handle last-question scenario:
+
+  // Add EL on click of each option that will call toNext():
+  const displayedOptions = document.querySelectorAll(
+    "#options-container button"
+  );
+  for (let option of displayedOptions) {
+    option.addEventListener("click", function () {
+      toNext();
+    });
+  }
 };
 
 // Add EL for click of start button:
