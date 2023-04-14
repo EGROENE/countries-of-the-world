@@ -72,14 +72,18 @@ let questionIndex = 0;
 // Param should be a question. In toNext(), usedQuestionsArray[questionIndex] will be passed into it when it's called.
 const displayOptions = (currentQuestion) => {
   const currentQuestionArea = document.getElementById("question");
+
   // Create button elem for each question option:
   let questionOptions = Object.entries(currentQuestion.options[0]);
   console.log(questionOptions);
+
   // For every entry of questionEntries, create button with entry info:
   for (let option of questionOptions) {
     let optionButton = document.createElement("button");
-    optionButton.setAttribute("id", option[0]);
-    optionButton.innerText += option[1];
+    let optionRightOrWrong = option[0];
+    let optionText = option[1];
+    optionButton.setAttribute("id", optionRightOrWrong);
+    optionButton.innerText += optionText;
     // append elem to question (inside question area):
     currentQuestionArea.appendChild(optionButton);
   }
