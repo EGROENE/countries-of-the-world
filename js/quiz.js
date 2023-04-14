@@ -121,6 +121,16 @@ const toNext = () => {
   } else if (questionIndex === usedQuestionsArray.length) {
     document.body.removeChild(document.body.children[1]);
     // Add info to resultsArea:
+    resultsArea.innerHTML +=
+      "<header id='results-header'>Out of " +
+      usedQuestionsArray.length +
+      " questions, you answered " +
+      score +
+      " correctly." +
+      "<div id='end-of-quiz-options'>" +
+      "<a href='./index.html' title='Return to Homepage'><button id='back-to-homepage'>Return to Homepage</button></a>" +
+      "<button id='play-again-btn' onclick='window.location.reload()'>Play Again!</button>" +
+      "</div>";
   } else {
     // Delete current question's progress indicator from DOM:
     questionArea.removeChild(questionArea.firstChild);
