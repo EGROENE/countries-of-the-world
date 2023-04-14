@@ -85,18 +85,19 @@ const displayOptions = (currentQuestion) => {
     let optionText = option[1];
     optionButton.setAttribute("id", optionRightOrWrong);
     optionButton.innerText += optionText;
-    // append elem to question (inside question area):
+    // Append elem to question (inside question area):
     optionsContainer.appendChild(optionButton);
   }
 };
-// Call in toNext() after populating questionArea innerHTML
-//displayOptions();
 
 const toNext = () => {
+  // Increment questionIndex by one:
   questionIndex++;
+  // If questionIndex is zero, hide the quiz greeting:
   if (questionIndex === 0) {
     // Hide greeting upon clicking start quiz btn:
     quizGreeting.style.display = "none";
+    // Else, remove current question from the DOM:
   } else {
     // Hide current question:
     questionArea.removeChild(questionArea.firstChild);
@@ -108,6 +109,7 @@ const toNext = () => {
     "<div id='question'><header id='question-header'>" +
     usedQuestionsArray[questionIndex].question +
     "</header><div id='options-container'></div></div>";
+  // Display answer options of next question:
   displayOptions(usedQuestionsArray[questionIndex]);
 
   // Handle last-question scenario:
