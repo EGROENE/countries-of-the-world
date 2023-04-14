@@ -65,8 +65,8 @@ const getUsedQuestionsArray = () => {
   console.log(usedQuestionsArray);
 };
 
-// Init variable that tallies questions answered. Should be incremented by one every time a question is answered.
-let questionIndex = 0;
+// Init variable that tallies questions answered. Should be incremented by one every time a question is answered. Init at -1 so that index 0 of usedQuestionsArray is called on the first question, and so forth.
+let questionIndex = -1;
 
 // For every option of a given question, create a button:
 // Param should be a question. In toNext(), usedQuestionsArray[questionIndex] will be passed into it when it's called.
@@ -93,6 +93,7 @@ const displayOptions = (currentQuestion) => {
 //displayOptions();
 
 const toNext = () => {
+  questionIndex++;
   if (questionIndex === 0) {
     // Hide greeting upon clicking start quiz btn:
     quizGreeting.style.display = "none";
