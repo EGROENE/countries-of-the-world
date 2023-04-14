@@ -3,6 +3,7 @@ const fullVersionBtn = document.getElementById("full-version-btn");
 const startBtns = document.querySelectorAll("#start-btns-container button");
 const quizGreeting = document.getElementById("quiz-greeting");
 const questionArea = document.getElementById("question-area");
+const resultsArea = document.getElementById("results-area");
 
 const allQuestionsArray = [
   {
@@ -95,9 +96,13 @@ const toNext = () => {
   questionIndex++;
   // If questionIndex is zero, hide the quiz greeting:
   if (questionIndex === 0) {
-    // Hide greeting upon clicking start quiz btn:
-    quizGreeting.style.display = "none";
-    // Else, remove current question from the DOM:
+    // Delete quizGreeting from DOM:
+    document.body.removeChild(document.body.children[1]);
+  } else if (questionIndex === allQuestionsArray.length - 1) {
+    // Last-question scenario
+    // Remove questionArea from DOM:
+    document.body.removeChild(document.body.children[1]);
+    // Else, display next question:
   } else {
     // Hide current question:
     questionArea.removeChild(questionArea.firstChild);
@@ -111,8 +116,6 @@ const toNext = () => {
     "</header><div id='options-container'></div></div>";
   // Display answer options of next question:
   displayOptions(usedQuestionsArray[questionIndex]);
-
-  // Handle last-question scenario:
 
   // Add EL on click of each option that will call toNext():
   const displayedOptions = document.querySelectorAll(
