@@ -47,7 +47,7 @@ console.log(allQuestionsArray);
 let questionsInGame;
 const getNumOfQuestions = (btn) => {
   btn.id === "play-short-version-btn"
-    ? (questionsInGame = 2)
+    ? (questionsInGame = 2) // EVENTUALLY CHANGE TO 10
     : (questionsInGame = allQuestionsArray.length);
   console.log(questionsInGame);
 };
