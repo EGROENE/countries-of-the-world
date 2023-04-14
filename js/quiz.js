@@ -75,6 +75,11 @@ let score = 0;
 // Function to populate questionArea with a question:
 const populateQuestionArea = () => {
   questionArea.innerHTML +=
+    "<div id='progress'>" +
+    (questionIndex + 1) +
+    " / " +
+    usedQuestionsArray.length +
+    "</div>" +
     "<div id='question'><header id='question-header'>" +
     usedQuestionsArray[questionIndex].question +
     "</header><div id='options-container'></div></div>";
@@ -117,6 +122,9 @@ const toNext = () => {
     document.body.removeChild(document.body.children[1]);
     // Add info to resultsArea:
   } else {
+    // Delete current question's progress indicator from DOM:
+    questionArea.removeChild(questionArea.firstChild);
+    // Delete current question from DOM:
     questionArea.removeChild(questionArea.firstChild);
     populateQuestionArea();
     // Display answer options:
