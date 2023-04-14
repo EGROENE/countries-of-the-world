@@ -42,15 +42,28 @@ for (let i = allQuestionsArray.length - 1; i > 0; i--) {
   ];
 }
 console.log(allQuestionsArray);
+
+// Make this a function to be called inside EL for each start btn at end of doc
+let questionsInGame;
+const getNumOfQuestions = (btn) => {
+  btn.id === "play-short-version-btn"
+    ? (questionsInGame = 2)
+    : (questionsInGame = allQuestionsArray.length);
+  console.log(questionsInGame);
+};
+
 // Eventually, push only 10 questions to usedQuestionsArray
-for (
-  let i = 0;
-  i < allQuestionsArray.length - (allQuestionsArray.length - 2);
-  i++
-) {
-  usedQuestionsArray.push(allQuestionsArray[i]);
-}
-console.log(usedQuestionsArray);
+// Make this a function to be called inside EL for each start btn at end of doc
+const getUsedQuestionsArray = () => {
+  for (
+    let i = 0;
+    i < allQuestionsArray.length - (allQuestionsArray.length - questionsInGame);
+    i++
+  ) {
+    usedQuestionsArray.push(allQuestionsArray[i]);
+  }
+  console.log(usedQuestionsArray);
+};
 
 // Init variable that tallies questions answered. Should be incremented by one every time a question is answered.
 let questionIndex = 0;
@@ -95,6 +108,8 @@ const toNext = () => {
 // Add EL for click of start button:
 for (let btn of startBtns) {
   btn.addEventListener("click", function () {
+    getNumOfQuestions(btn);
+    getUsedQuestionsArray();
     toNext();
   });
 }
