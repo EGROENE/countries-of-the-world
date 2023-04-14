@@ -97,30 +97,34 @@ const displayOptions = (currentQuestion) => {
 const toNext = () => {
   // Increment questionIndex by one:
   questionIndex++;
-  // If questionIndex is zero, hide the quiz greeting:
+  // If questionIndex is zero (if on first question), delete the quiz greeting from the DOM, display info for first question.
+  // Else if: handle last-question scenario. questionArea is removed from DOM, info is added to resultsArea.
+  // Else: Move from one question to another. Current question is removed from DOM, info for next Q is displayed.
   if (questionIndex === 0) {
-    // Delete quizGreeting from DOM:
     document.body.removeChild(document.body.children[1]);
+    // Put this part into a function, then call here:
+    questionArea.innerHTML +=
+      "<div id='question'><header id='question-header'>" +
+      usedQuestionsArray[questionIndex].question +
+      "</header><div id='options-container'></div></div>";
+    // Display answer options of next question:
+    displayOptions(usedQuestionsArray[questionIndex]);
   } else if (questionIndex === allQuestionsArray.length) {
-    // Last-question scenario
-    // Remove questionArea from DOM:
     document.body.removeChild(document.body.children[1]);
     // Add info to resultsArea:
   } else {
-    // Hide current question:
     questionArea.removeChild(questionArea.firstChild);
+    // Put this part into a function, then call here:
+    questionArea.innerHTML +=
+      "<div id='question'><header id='question-header'>" +
+      usedQuestionsArray[questionIndex].question +
+      "</header><div id='options-container'></div></div>";
+    // Display answer options of next question:
+    displayOptions(usedQuestionsArray[questionIndex]);
   }
-  // Display question area:
-  questionArea.style.display = "flex";
-  // Display next question:
-  questionArea.innerHTML +=
-    "<div id='question'><header id='question-header'>" +
-    usedQuestionsArray[questionIndex].question +
-    "</header><div id='options-container'></div></div>";
-  // Display answer options of next question:
-  displayOptions(usedQuestionsArray[questionIndex]);
 
-  // Add EL on click of each option that will call toNext():
+  // Add EL on click of each option that will call toNext() to display next question:
+  // Must be called here inside toNext() as the displayed options vary with each new question.
   const displayedOptions = document.querySelectorAll(
     "#options-container button"
   );
