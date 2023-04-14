@@ -69,6 +69,9 @@ const getUsedQuestionsArray = () => {
 // Init variable that tallies questions answered. Should be incremented by one every time a question is answered. Init at -1 so that index 0 of usedQuestionsArray is called on the first question, and so forth. Aligns w/ zero-indexing of arrays & done to avoid confusion about this.
 let questionIndex = -1;
 
+// Init score:
+let score = 0;
+
 // For every option of a given question, create a button:
 // Param should be a question. In toNext(), usedQuestionsArray[questionIndex] will be passed into it when it's called.
 const displayOptions = (currentQuestion) => {
@@ -102,7 +105,7 @@ const toNext = () => {
     // Last-question scenario
     // Remove questionArea from DOM:
     document.body.removeChild(document.body.children[1]);
-    // Else, display next question:
+    // Add info to resultsArea:
   } else {
     // Hide current question:
     questionArea.removeChild(questionArea.firstChild);
@@ -123,6 +126,11 @@ const toNext = () => {
   );
   for (let option of displayedOptions) {
     option.addEventListener("click", function () {
+      // If option is right answer, add one to score:
+      if (option.id === "rightAnswer") {
+        score++;
+      }
+      console.log(score);
       toNext();
     });
   }
