@@ -134,14 +134,14 @@ const toNext = () => {
     quizMainArea.appendChild(resultsArea);
     // Add info to resultsArea:
     resultsArea.innerHTML +=
-      "<header id='results-header'>Out of " +
+      "<h1 id='results-header'>Out of " +
       usedQuestionsArray.length +
       " questions, you answered " +
       score +
       " correctly." +
-      "<div id='end-of-quiz-options'>" +
+      "</h1><div id='end-of-quiz-options'>" +
       "<a href='./index.html' title='Return to Homepage'><button id='back-to-homepage'>Return to Homepage</button></a>" +
-      "<button id='play-again-btn' onclick='window.location.reload()'>Play Again!</button>" +
+      "<button id='play-again-btn' title='Play Again!' onclick='window.location.reload()'>Play Again!</button>" +
       "</div>";
   } else {
     // Delete current question's progress indicator from DOM:
