@@ -39,16 +39,15 @@ const allQuestionsArray = [
 ];
 
 // Put random questions into array, then use this array to populate question area:
-let usedQuestionsArray = [];
-// Randomly shuffle order of allQuestionsArray:
-for (let i = allQuestionsArray.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [allQuestionsArray[i], allQuestionsArray[j]] = [
-    allQuestionsArray[j],
-    allQuestionsArray[i],
-  ];
-}
-console.log(allQuestionsArray);
+// Function to randomly shuffle order of array:
+const randomlyShuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
+let usedQuestionsArray;
 
 // Function to set the number of questions in game, depending on what user selects:
 // Call in EL that is applied to each of the start buttons, located towards end of this document.
@@ -58,18 +57,6 @@ const getNumOfQuestions = (btn) => {
     ? (questionsInGame = 2) // EVENTUALLY CHANGE TO 10
     : (questionsInGame = allQuestionsArray.length);
   console.log(questionsInGame);
-};
-
-// Push appropriate number of questions to usedQuestionsArray. Questions from this array will be used in the game.
-const getUsedQuestionsArray = () => {
-  for (
-    let i = 0;
-    i < allQuestionsArray.length - (allQuestionsArray.length - questionsInGame);
-    i++
-  ) {
-    usedQuestionsArray.push(allQuestionsArray[i]);
-  }
-  console.log(usedQuestionsArray);
 };
 
 // Init variable that tallies questions answered. Should be incremented by one every time a question is answered. Init at -1 so that index 0 of usedQuestionsArray is called on the first question, and so forth. Aligns w/ zero-indexing of arrays & done to avoid confusion about this.
@@ -200,7 +187,7 @@ const toNext = () => {
 for (let btn of startBtns) {
   btn.addEventListener("click", function () {
     getNumOfQuestions(btn);
-    getUsedQuestionsArray();
+    usedQuestionsArray = randomlyShuffleArray(allQuestionsArray);
     toNext();
   });
 }
