@@ -86,6 +86,7 @@ const displayOptions = (currentQuestion) => {
 
   // Create button elem for each question option:
   let questionOptions = Object.entries(currentQuestion.options[0]);
+  questionOptions = randomlyShuffleArray(questionOptions);
   console.log(questionOptions);
 
   // For every entry of questionEntries, create button with entry info:
