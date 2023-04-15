@@ -28,20 +28,95 @@ async function getCountry() {
   console.log(country);
 
   // Set BG image for country:
-  if (country.altSpellings.length > 1) {
+  const specialBGCountries = [
+    "barbados",
+    "bahamas",
+    "liechtenstein",
+    "vaticancity",
+    "sanaarino",
+    "centralafricanrepublic",
+    "drcongo",
+    "republicofthecongo",
+  ];
+  const specialBGCountriesImgArrays = {
+    barbadosBGs: [
+      "https://plus.unsplash.com/premium_photo-1670689708255-0bbae284cf88?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFyYmFkb3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1633847017573-fa07b1bddc07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmFyYmFkb3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1633847016580-b7a15cc813d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFyYmFkb3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1636728150922-e7361791595a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFyYmFkb3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://plus.unsplash.com/premium_photo-1663047236438-b13c19c03936?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJhcmJhZG9zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1626023523667-a33431da2cc1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGJhcmJhZG9zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1557188969-16b469a5b6c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmFyYmFkb3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    ],
+
+    bahamasBGs: [
+      "https://images.unsplash.com/photo-1589786161184-6d43d20526e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmFoYW1hc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1559956144-83a135c9872e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmFoYW1hc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1598979281903-65879e65bd90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJhaGFtYXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1501698335706-90b736210a61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJhaGFtYXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1523659945955-fe95eb9bc70b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGJhaGFtYXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    ],
+
+    liechtensteinBGs: [
+      "https://images.unsplash.com/photo-1512424113276-fa9f6a112384?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGllY2h0ZW5zdGVpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1625138385193-bca1f03448ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bGllY2h0ZW5zdGVpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1625474165845-0c6e04ecef58?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGllY2h0ZW5zdGVpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1545860405-d4f425871cd9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGxpZWNodGVuc3RlaW58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1605453288713-e215a57e30ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGllY2h0ZW5zdGVpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    ],
+
+    vaticancityBGs: [
+      "https://images.unsplash.com/photo-1602940614745-b01c749443e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmF0aWNhbiUyMGNpdHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1523020286969-4de832476819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHZhdGljYW4lMjBjaXR5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1568797732023-0212d2c045b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHZhdGljYW4lMjBjaXR5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1610655769765-be8a0dd9627a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHZhdGljYW4lMjBjaXR5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1579190335220-95b9e4873789?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dmF0aWNhbiUyMGNpdHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    ],
+
+    sanmarinoBGs: [
+      "https://images.unsplash.com/photo-1553027578-a8a2b2b13329?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2FuJTIwbWFyaW5vJTIwZXVyb3BlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1664331746739-119f4a110e7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2FuJTIwbWFyaW5vJTIwdGhlJTIwY291bnRyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    ],
+
+    centralafricanrepublicBGs: [
+      "https://images.unsplash.com/photo-1459183885421-5cc683b8dbba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMjkzNDIxfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1500109232983-ec562bebb685?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMjQ0Mzg3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1572199135604-2a2934d355d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+    ],
+
+    drcongoBGs: [
+      "https://images.unsplash.com/photo-1576526164505-9a2540866186?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGVtb2NyYXRpYyUyMHJlcHVibGljJTIwb2YlMjB0aGUlMjBjb25nb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1623930180584-1b14bc584169?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZGVtb2NyYXRpYyUyMHJlcHVibGljJTIwb2YlMjB0aGUlMjBjb25nb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1554232682-b9ef9c92f8de?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bnlhbXVyYWdpcmF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1538430352266-de6bcba9a06b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8ZGVtb2NyYXRpYyUyMHJlcHVibGljJTIwb2YlMjB0aGUlMjBjb25nb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    ],
+
+    republicofthecongoBGs: [
+      "https://images.unsplash.com/photo-1432298026442-0eabd0a98870?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y29uZ28lMjBqdW5nbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1470058869958-2a77ade41c02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y29uZ28lMjBqdW5nbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1511936606692-5e0d73f6b638?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvbmdvJTIwanVuZ2xlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    ],
+  };
+
+  // If particular country is a country that has unique background images, set one of these randomly as the BG. Else, set BG img based on search:
+  // Try simplifying by checking if keys of specialBGCountriesImgArrays includes country.name.common.replace(/\s/g, "").toLowerCase()
+  if (
+    specialBGCountries.includes(
+      country.name.common.replace(/\s/g, "").toLowerCase()
+    )
+  ) {
+    let specialCountryKey =
+      country.name.common.replace(/\s/g, "").toLowerCase() + "BGs";
+    let specialCountryBGImages = specialBGCountriesImgArrays[specialCountryKey];
+    console.log(specialCountryBGImages);
+    let randIndex = Math.floor(Math.random() * specialCountryBGImages.length);
     document.body.style.backgroundImage =
-      'url("https://source.unsplash.com/1900x600/?' +
-      country.altSpellings[1].toLowerCase().replace(/ /g, "-") +
-      " " +
-      country.name.common.toLowerCase() +
-      " " +
-      country.continents.toString() +
-      '")';
+      "url(" + specialCountryBGImages[randIndex] + ")";
   } else {
     document.body.style.backgroundImage =
       'url("https://source.unsplash.com/1900x600/?' +
       country.name.common.toLowerCase() +
-      '")';
+      ' the country")';
   }
 
   // Get country name for header on country pages:
