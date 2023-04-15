@@ -47,16 +47,32 @@ const randomlyShuffleArray = (array) => {
   }
   return array;
 };
-let usedQuestionsArray;
+randomlyShuffleArray(allQuestionsArray);
 
 // Function to set the number of questions in game, depending on what user selects:
 // Call in EL that is applied to each of the start buttons, located towards end of this document.
-let questionsInGame;
+let numOfQuestionsInGame;
 const getNumOfQuestions = (btn) => {
   btn.id === "play-short-version-btn"
-    ? (questionsInGame = 2) // EVENTUALLY CHANGE TO 10
-    : (questionsInGame = allQuestionsArray.length);
-  console.log(questionsInGame);
+    ? (numOfQuestionsInGame = 2) // EVENTUALLY CHANGE TO 10
+    : (numOfQuestionsInGame = allQuestionsArray.length);
+  console.log(numOfQuestionsInGame);
+};
+
+let usedQuestionsArray = [];
+// Function to get usedQuestionsArray:
+const getUsedQuestionsArray = () => {
+  for (
+    let i = 0;
+    i <
+    allQuestionsArray.length -
+      (allQuestionsArray.length - numOfQuestionsInGame);
+    i++
+  ) {
+    usedQuestionsArray.push(allQuestionsArray[i]);
+  }
+  console.log(usedQuestionsArray);
+  return usedQuestionsArray;
 };
 
 // Init variable that tallies questions answered. Should be incremented by one every time a question is answered. Init at -1 so that index 0 of usedQuestionsArray is called on the first question, and so forth. Aligns w/ zero-indexing of arrays & done to avoid confusion about this.
@@ -188,7 +204,8 @@ const toNext = () => {
 for (let btn of startBtns) {
   btn.addEventListener("click", function () {
     getNumOfQuestions(btn);
-    usedQuestionsArray = randomlyShuffleArray(allQuestionsArray);
+    getUsedQuestionsArray();
+    //usedQuestionsArray = randomlyShuffleArray(allQuestionsArray);
     toNext();
   });
 }
