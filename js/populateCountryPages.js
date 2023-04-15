@@ -28,16 +28,6 @@ async function getCountry() {
   console.log(country);
 
   // Set BG image for country:
-  const specialBGCountries = [
-    "barbados",
-    "bahamas",
-    "liechtenstein",
-    "vaticancity",
-    "sanaarino",
-    "centralafricanrepublic",
-    "drcongo",
-    "republicofthecongo",
-  ];
   const specialBGCountriesImgArrays = {
     barbadosBGs: [
       "https://plus.unsplash.com/premium_photo-1670689708255-0bbae284cf88?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFyYmFkb3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
@@ -99,16 +89,11 @@ async function getCountry() {
   };
 
   // If particular country is a country that has unique background images, set one of these randomly as the BG. Else, set BG img based on search:
-  // Try simplifying by checking if keys of specialBGCountriesImgArrays includes country.name.common.replace(/\s/g, "").toLowerCase()
-  if (
-    specialBGCountries.includes(
-      country.name.common.replace(/\s/g, "").toLowerCase()
-    )
-  ) {
-    let specialCountryKey =
-      country.name.common.replace(/\s/g, "").toLowerCase() + "BGs";
+  let specialCountryKey =
+    country.name.common.replace(/\s/g, "").toLowerCase() + "BGs";
+
+  if (Object.keys(specialBGCountriesImgArrays).includes(specialCountryKey)) {
     let specialCountryBGImages = specialBGCountriesImgArrays[specialCountryKey];
-    console.log(specialCountryBGImages);
     let randIndex = Math.floor(Math.random() * specialCountryBGImages.length);
     document.body.style.backgroundImage =
       "url(" + specialCountryBGImages[randIndex] + ")";
