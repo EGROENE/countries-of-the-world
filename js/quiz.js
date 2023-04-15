@@ -1,9 +1,15 @@
 const shortVersionBtn = document.getElementById("short-version-btn");
 const fullVersionBtn = document.getElementById("full-version-btn");
 const startBtns = document.querySelectorAll("#start-btns-container button");
+const quizMainArea = document.getElementsByTagName("main")[0];
+console.log(quizMainArea);
 const quizGreeting = document.getElementById("quiz-greeting");
-const questionArea = document.getElementById("question-area");
-const resultsArea = document.getElementById("results-area");
+//const questionArea = document.getElementById("question-area");
+const questionArea = document.createElement("div");
+questionArea.setAttribute("id", "question-area");
+const resultsArea = document.createElement("div");
+resultsArea.setAttribute("id", "results-area");
+//const resultsArea = document.getElementById("results-area");
 
 const allQuestionsArray = [
   {
@@ -114,12 +120,18 @@ const toNext = () => {
   // ELSE IF: handle last-question scenario. questionArea is removed from DOM, info is added to resultsArea.
   // ELSE: Move from one question to another. Current question is removed from DOM, info for next question is displayed.
   if (questionIndex === 0) {
-    document.body.removeChild(document.body.children[1]);
+    // Remove greeting from DOM:
+    quizMainArea.removeChild(quizMainArea.children[0]);
+    // Append question area to DOM:
+    quizMainArea.appendChild(questionArea);
     populateQuestionArea();
     // Display answer options:
     displayOptions(usedQuestionsArray[questionIndex]);
   } else if (questionIndex === usedQuestionsArray.length) {
-    document.body.removeChild(document.body.children[1]);
+    // Remove question area from DOM:
+    quizMainArea.removeChild(quizMainArea.children[0]);
+    // Append results area to DOM:
+    quizMainArea.appendChild(resultsArea);
     // Add info to resultsArea:
     resultsArea.innerHTML +=
       "<header id='results-header'>Out of " +
