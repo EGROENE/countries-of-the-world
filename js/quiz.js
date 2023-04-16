@@ -1,5 +1,5 @@
-const shortVersionBtn = document.getElementById("short-version-btn");
-const fullVersionBtn = document.getElementById("full-version-btn");
+const shortVersionBtn = document.getElementById("play-short-version-btn");
+const fullVersionBtn = document.getElementById("play-full-version-btn");
 const startBtns = document.querySelectorAll("#start-btns-container button");
 const quizMainArea = document.getElementsByTagName("main")[0];
 console.log(quizMainArea);
@@ -37,6 +37,7 @@ const allQuestionsArray = [
     ],
   },
 ];
+fullVersionBtn.innerHTML += " (" + allQuestionsArray.length + " Questions)";
 
 // Put random questions into array, then use this array to populate question area:
 // Function to randomly shuffle order of array:
