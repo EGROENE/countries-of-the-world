@@ -283,7 +283,9 @@ async function getCountry() {
       // Populate bordering countries:
       // For certain countries, it sounds nicer to add 'the' to its link title, so this is done also.
       for (let borderCountry of borderCountryDataObjects) {
-        const countriesWithTheBeforeName = [
+        const countriesThatSoundBetterWithTheBeforeName = [
+          "isle-of-man",
+          "united-kingdom",
           "netherlands",
           "bahamas",
           "republic-of-the-congo",
@@ -291,7 +293,7 @@ async function getCountry() {
           "british-indian-ocean-territory",
           "british-virgin-islands",
           "central-african-republic",
-          "french-souther-and-antarctic-lands",
+          "french-southern-and-antarctic-lands",
           "marshall-islands",
           "maldives",
           "northern-mariana-islands",
@@ -303,7 +305,7 @@ async function getCountry() {
         ];
         let linkTitle = borderCountry.name.common;
         if (
-          countriesWithTheBeforeName.includes(
+          countriesThatSoundBetterWithTheBeforeName.includes(
             borderCountry.name.common.toLowerCase().replace(/\s/g, "-")
           )
         ) {
