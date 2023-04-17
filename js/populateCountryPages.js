@@ -281,12 +281,39 @@ async function getCountry() {
       }
 
       // Populate bordering countries:
+      // For certain countries, it sounds nicer to add 'the' to its link title, so this is done also.
       for (let borderCountry of borderCountryDataObjects) {
+        const countriesWithTheBeforeName = [
+          "netherlands",
+          "bahamas",
+          "republic-of-the-congo",
+          "dr-congo",
+          "british-indian-ocean-territory",
+          "british-virgin-islands",
+          "central-african-republic",
+          "french-souther-and-antarctic-lands",
+          "marshall-islands",
+          "maldives",
+          "northern-mariana-islands",
+          "pitcairn-islands",
+          "united-states",
+          "united-states-minor-outlying-islands",
+          "united-states-virgin-islands",
+          "åland-islands",
+        ];
+        let linkTitle = borderCountry.name.common;
+        if (
+          countriesWithTheBeforeName.includes(
+            borderCountry.name.common.toLowerCase().replace(/\s/g, "-")
+          )
+        ) {
+          linkTitle = "the " + borderCountry.name.common;
+        }
         borderCountriesList.innerHTML +=
           "<a class='border-country-link' href='./" +
           borderCountry.name.common.toLowerCase().replace(/\s/g, "-") +
           ".html' title='Learn about " +
-          borderCountry.name.common +
+          linkTitle +
           "!'>" +
           borderCountry.name.common +
           "</a>";
