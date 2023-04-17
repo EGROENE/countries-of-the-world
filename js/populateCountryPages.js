@@ -147,12 +147,16 @@ async function getCountry() {
     demonyms = Object.values(demonyms);
     maleDemonym = demonyms[0];
     femaleDemonym = demonyms[1];
-    demonyms =
-      "<p>Demonyms: <span> " +
-      femaleDemonym +
-      " (f), " +
-      maleDemonym +
-      " (m)</span></p>";
+    if (maleDemonym === femaleDemonym) {
+      demonyms = "<p>Demonym: <span>" + maleDemonym + "</span></p>";
+    } else {
+      demonyms =
+        "<p>Demonyms: <span> " +
+        femaleDemonym +
+        " (f), " +
+        maleDemonym +
+        " (m)</span></p>";
+    }
   }
 
   // Get currency/ies:
