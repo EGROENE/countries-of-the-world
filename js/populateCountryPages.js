@@ -284,6 +284,7 @@ async function getCountry() {
       // For certain countries, it sounds nicer to add 'the' to its link title, so this is done also.
       for (let borderCountry of borderCountryDataObjects) {
         const countriesThatSoundBetterWithTheBeforeName = [
+          "caribbean-netherlands",
           "isle-of-man",
           "united-kingdom",
           "netherlands",
