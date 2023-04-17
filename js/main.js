@@ -118,9 +118,12 @@ async function getCountries() {
           .replace(/[$,]/g, "")
           .replace(/\s/g, "-")
       )
-    ) {
-      linkTitle = "Click to learn more about the " + country.name.common;
-    }
+    )
+      if (country.name.common === "DR Congo") {
+        linkTitle = "Click to learn more about the " + country.name.official;
+      } else {
+        linkTitle = "Click to learn more about the " + country.name.common;
+      }
 
     // Populate homepage:
     let allCountriesArea = document.getElementById("all-countries-container");

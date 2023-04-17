@@ -309,9 +309,12 @@ async function getCountry() {
           countriesThatSoundBetterWithTheBeforeName.includes(
             borderCountry.name.common.toLowerCase().replace(/\s/g, "-")
           )
-        ) {
-          linkTitle = "the " + borderCountry.name.common;
-        }
+        )
+          if (borderCountry.name.common === "DR Congo") {
+            linkTitle = "the " + borderCountry.name.official;
+          } else {
+            linkTitle = "the " + borderCountry.name.common;
+          }
         borderCountriesList.innerHTML +=
           "<a class='border-country-link' href='./" +
           borderCountry.name.common.toLowerCase().replace(/\s/g, "-") +
