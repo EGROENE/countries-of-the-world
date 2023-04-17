@@ -147,12 +147,16 @@ async function getCountry() {
     demonyms = Object.values(demonyms);
     maleDemonym = demonyms[0];
     femaleDemonym = demonyms[1];
-    demonyms =
-      "<p>Demonyms: <span> " +
-      femaleDemonym +
-      " (f), " +
-      maleDemonym +
-      " (m)</span></p>";
+    if (maleDemonym === femaleDemonym) {
+      demonyms = "<p>Demonym: <span>" + maleDemonym + "</span></p>";
+    } else {
+      demonyms =
+        "<p>Demonyms: <span> " +
+        femaleDemonym +
+        " (f), " +
+        maleDemonym +
+        " (m)</span></p>";
+    }
   }
 
   // Get currency/ies:
@@ -277,12 +281,41 @@ async function getCountry() {
       }
 
       // Populate bordering countries:
+      // For certain countries, it sounds nicer to add 'the' to its link title, so this is done also.
       for (let borderCountry of borderCountryDataObjects) {
+        const countriesThatSoundBetterWithTheBeforeName = [
+          "isle-of-man",
+          "united-kingdom",
+          "netherlands",
+          "bahamas",
+          "republic-of-the-congo",
+          "dr-congo",
+          "british-indian-ocean-territory",
+          "british-virgin-islands",
+          "central-african-republic",
+          "french-southern-and-antarctic-lands",
+          "marshall-islands",
+          "maldives",
+          "northern-mariana-islands",
+          "pitcairn-islands",
+          "united-states",
+          "united-states-minor-outlying-islands",
+          "united-states-virgin-islands",
+          "åland-islands",
+        ];
+        let linkTitle = borderCountry.name.common;
+        if (
+          countriesThatSoundBetterWithTheBeforeName.includes(
+            borderCountry.name.common.toLowerCase().replace(/\s/g, "-")
+          )
+        ) {
+          linkTitle = "the " + borderCountry.name.common;
+        }
         borderCountriesList.innerHTML +=
           "<a class='border-country-link' href='./" +
           borderCountry.name.common.toLowerCase().replace(/\s/g, "-") +
           ".html' title='Learn about " +
-          borderCountry.name.common +
+          linkTitle +
           "!'>" +
           borderCountry.name.common +
           "</a>";

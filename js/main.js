@@ -88,6 +88,39 @@ async function getCountries() {
       languages = languages.join(", ");
     }
 
+    // If names sound better with 'the' in front of them, add 'the' to these countries' link titles. Else, link title is country's common name.
+    let linkTitle = "Click to learn more about " + country.name.common;
+    const countriesThatSoundBetterWithTheBeforeName = [
+      "isle-of-man",
+      "united-kingdom",
+      "netherlands",
+      "bahamas",
+      "republic-of-the-congo",
+      "dr-congo",
+      "british-indian-ocean-territory",
+      "british-virgin-islands",
+      "central-african-republic",
+      "french-southern-and-antarctic-lands",
+      "marshall-islands",
+      "maldives",
+      "northern-mariana-islands",
+      "pitcairn-islands",
+      "united-states",
+      "united-states-minor-outlying-islands",
+      "united-states-virgin-islands",
+      "åland-islands",
+    ];
+    if (
+      countriesThatSoundBetterWithTheBeforeName.includes(
+        country.name.common
+          .toLowerCase()
+          .replace(/[$,]/g, "")
+          .replace(/\s/g, "-")
+      )
+    ) {
+      linkTitle = "Click to learn more about the " + country.name.common;
+    }
+
     // Populate homepage:
     let allCountriesArea = document.getElementById("all-countries-container");
     allCountriesArea.innerHTML +=
@@ -96,8 +129,8 @@ async function getCountries() {
         .toLowerCase()
         .replace(/[$,]/g, "")
         .replace(/\s/g, "-") +
-      '.html" class="country-card" title="Click to learn more about ' +
-      country.name.common +
+      '.html" class="country-card" title="' +
+      linkTitle +
       '!" data-full-name=' +
       country.name.official.toLowerCase().replace(/\s/g, "-") +
       " data-common-name=" +
