@@ -284,6 +284,7 @@ async function getCountry() {
       // For certain countries, it sounds nicer to add 'the' to its link title, so this is done also.
       for (let borderCountry of borderCountryDataObjects) {
         const countriesThatSoundBetterWithTheBeforeName = [
+          "caribbean-netherlands",
           "isle-of-man",
           "united-kingdom",
           "netherlands",
@@ -308,9 +309,12 @@ async function getCountry() {
           countriesThatSoundBetterWithTheBeforeName.includes(
             borderCountry.name.common.toLowerCase().replace(/\s/g, "-")
           )
-        ) {
-          linkTitle = "the " + borderCountry.name.common;
-        }
+        )
+          if (borderCountry.name.common === "DR Congo") {
+            linkTitle = "the " + borderCountry.name.official;
+          } else {
+            linkTitle = "the " + borderCountry.name.common;
+          }
         borderCountriesList.innerHTML +=
           "<a class='border-country-link' href='./" +
           borderCountry.name.common.toLowerCase().replace(/\s/g, "-") +

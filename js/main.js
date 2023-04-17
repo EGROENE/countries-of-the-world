@@ -91,6 +91,7 @@ async function getCountries() {
     // If names sound better with 'the' in front of them, add 'the' to these countries' link titles. Else, link title is country's common name.
     let linkTitle = "Click to learn more about " + country.name.common;
     const countriesThatSoundBetterWithTheBeforeName = [
+      "caribbean-netherlands",
       "isle-of-man",
       "united-kingdom",
       "netherlands",
@@ -117,9 +118,12 @@ async function getCountries() {
           .replace(/[$,]/g, "")
           .replace(/\s/g, "-")
       )
-    ) {
-      linkTitle = "Click to learn more about the " + country.name.common;
-    }
+    )
+      if (country.name.common === "DR Congo") {
+        linkTitle = "Click to learn more about the " + country.name.official;
+      } else {
+        linkTitle = "Click to learn more about the " + country.name.common;
+      }
 
     // Populate homepage:
     let allCountriesArea = document.getElementById("all-countries-container");
