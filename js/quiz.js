@@ -2,14 +2,11 @@ const shortVersionBtn = document.getElementById("play-short-version-btn");
 const fullVersionBtn = document.getElementById("play-full-version-btn");
 const startBtns = document.querySelectorAll("#start-btns-container button");
 const quizMainArea = document.getElementsByTagName("main")[0];
-console.log(quizMainArea);
 const quizGreeting = document.getElementById("quiz-greeting");
-//const questionArea = document.getElementById("question-area");
 const questionArea = document.createElement("div");
 questionArea.setAttribute("id", "question-area");
 const resultsArea = document.createElement("div");
 resultsArea.setAttribute("id", "results-area");
-//const resultsArea = document.getElementById("results-area");
 
 // Function to change bg image. Should also be called in toNext():
 const quizBGImages = [
@@ -528,7 +525,6 @@ const allQuestionsArray = [
     ],
   },
 ];
-//fullVersionBtn.innerHTML += " (" + allQuestionsArray.length + " Questions)";
 
 // Put random questions into array, then use this array to populate question area:
 // Function to randomly shuffle order of array:
@@ -548,7 +544,6 @@ const getNumOfQuestions = (btn) => {
   btn.id === "play-short-version-btn"
     ? (numOfQuestionsInGame = 10)
     : (numOfQuestionsInGame = 25);
-  console.log(numOfQuestionsInGame);
 };
 
 let usedQuestionsArray = [];
@@ -563,7 +558,6 @@ const getUsedQuestionsArray = () => {
   ) {
     usedQuestionsArray.push(allQuestionsArray[i]);
   }
-  console.log(usedQuestionsArray);
   return usedQuestionsArray;
 };
 
@@ -595,7 +589,6 @@ const displayOptions = (currentQuestion) => {
   // Create button elem for each question option:
   let questionOptions = Object.entries(currentQuestion.options[0]);
   questionOptions = randomlyShuffleArray(questionOptions);
-  console.log(questionOptions);
 
   // For every entry of questionEntries, create button with entry info:
   for (let option of questionOptions) {
@@ -685,7 +678,6 @@ const toNext = () => {
       if (option.id === "rightAnswer") {
         score++;
       }
-      console.log(score);
       toNext();
     });
   }

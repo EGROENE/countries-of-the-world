@@ -22,8 +22,6 @@ async function getCountries() {
     }
     return 0;
   });
-
-  //let mainArray = allCountriesArray.map((country) => country);
   console.log(mainArray);
 
   for (let country of mainArray) {

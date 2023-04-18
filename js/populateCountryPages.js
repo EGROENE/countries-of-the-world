@@ -129,7 +129,6 @@ async function getCountry() {
     nativeNames = nativeNames.filter(
       (nativeName) => nativeName.common !== country.name.common
     );
-    console.log(nativeNames);
     if (nativeNames.length >= 1) {
       nativeNames =
         "<p>" +
