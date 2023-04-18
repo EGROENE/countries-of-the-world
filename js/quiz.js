@@ -36,8 +36,431 @@ const allQuestionsArray = [
       },
     ],
   },
+  {
+    question: "What side of the road does Ireland drive on?",
+    options: [
+      {
+        wrongAnswer: "Right",
+        rightAnswer: "Left",
+      },
+    ],
+  },
+  {
+    question: "What side of the road does Spain drive on?",
+    options: [
+      {
+        wrongAnswer: "Left",
+        rightAnswer: "Right",
+      },
+    ],
+  },
+  {
+    question: "True or False: The United States has an official language.",
+    options: [
+      {
+        wrongAnswer: "True",
+        rightAnswer: "False",
+      },
+    ],
+  },
+  {
+    question: "How many official languages are there in Switzerland?",
+    options: [
+      {
+        wrongAnswer1: "2",
+        wrongAnswer2: "3",
+        wrongAnswer3: "5",
+        rightAnswer: "4",
+      },
+    ],
+  },
+  {
+    question: "What is the capital of South Africa?",
+    options: [
+      {
+        wrongAnswer1: "Bloemfontein",
+        wrongAnswer2: "Pretoria",
+        wrongAnswer3: "Cape Town",
+        rightAnswer: "*all of these*",
+      },
+    ],
+  },
+  {
+    question:
+      "True or False: 'Saint Martin' & 'Sint Maarten' are just two different names for the same country.",
+    options: [
+      {
+        wrongAnswer: "True",
+        rightAnswer: "False",
+      },
+    ],
+  },
+  {
+    question: "Which of the following is NOT a part of the United Kingdom?",
+    options: [
+      {
+        wrongAnswer1: "Northern Ireland",
+        wrongAnswer2: "England",
+        wrongAnswer3: "Scotland",
+        rightAnswer: "Ireland",
+      },
+    ],
+  },
+  {
+    question: "True or False: Mexico is a part of North America.",
+    options: [
+      {
+        wrongAnswer: "False",
+        rightAnswer: "True",
+      },
+    ],
+  },
+  {
+    question:
+      "Which of these countries has an eerily similar flag to that of Indonesia?",
+    options: [
+      {
+        wrongAnswer1: "Zambia",
+        wrongAnswer2: "Qatar",
+        rightAnswer: "Monaco",
+      },
+    ],
+  },
+  {
+    question:
+      "Which of these countries has an eerily similar flag to that of Japan?",
+    options: [
+      {
+        wrongAnswer1: "Malaysia",
+        wrongAnswer2: "Brunei",
+        rightAnswer: "Bangladesh",
+      },
+    ],
+  },
+  {
+    question:
+      "Which of these countries has an eerily similar flag to that of Ireland?",
+    options: [
+      {
+        wrongAnswer1: "Moldova",
+        wrongAnswer2: "Niue",
+        rightAnswer: "Ivory Coast",
+      },
+    ],
+  },
+  {
+    question:
+      "Which of these countries has an eerily similar flag to that of the Netherlands?",
+    options: [
+      {
+        wrongAnswer1: "Hungary",
+        wrongAnswer2: "Caribbean Netherlands",
+        rightAnswer: "Luxembourg",
+      },
+    ],
+  },
+  {
+    question:
+      "Which of these countries has an eerily similar flag to that of the United States?",
+    options: [
+      {
+        wrongAnswer1: "American Samoa",
+        wrongAnswer2: "U.S. Virgin Islands",
+        rightAnswer: "Liberia",
+      },
+    ],
+  },
+  {
+    question:
+      "Which of these countries has an eerily similar flag to that of Qatar?",
+    options: [
+      {
+        wrongAnswer1: "Fiji",
+        wrongAnswer2: "United Arab Emirates",
+        rightAnswer: "Bahrain",
+      },
+    ],
+  },
+  {
+    question: "True or False: Russian is an official language of Azerbaijan.",
+    options: [
+      {
+        wrongAnswer: "False",
+        rightAnswer: "True",
+      },
+    ],
+  },
+  {
+    question: "True or False: North Korea shares a border with Russia.",
+    options: [
+      {
+        wrongAnswer: "False",
+        rightAnswer: "True",
+      },
+    ],
+  },
+  {
+    question: "True or False: South Korea shares a border with China.",
+    options: [
+      {
+        wrongAnswer: "True",
+        rightAnswer: "False",
+      },
+    ],
+  },
+  {
+    question: "True or False: Arabic is an official language of Turkey.",
+    options: [
+      {
+        wrongAnswer: "True",
+        rightAnswer: "False",
+      },
+    ],
+  },
+  {
+    question:
+      "True or False: Vatican City is a part of Italy, not its own, separate country.",
+    options: [
+      {
+        wrongAnswer: "True",
+        rightAnswer: "False",
+      },
+    ],
+  },
+  {
+    question: "True or False: Thailand borders China.",
+    options: [
+      {
+        wrongAnswer: "True",
+        rightAnswer: "False",
+      },
+    ],
+  },
+  {
+    question: "True or False: India's population is over 2 billion.",
+    options: [
+      {
+        wrongAnswer: "True",
+        rightAnswer: "False",
+      },
+    ],
+  },
+  {
+    question: "Which language, besides Turkmen, is spoken in Turkmenistan?",
+    options: [
+      {
+        wrongAnswer1: "Arabic",
+        wrongAnswer2: "Turkish",
+        rightAnswer: "Russian",
+      },
+    ],
+  },
+  {
+    question: "What is the capital of Laos?",
+    options: [
+      {
+        wrongAnswer1: "Hong Kong",
+        wrongAnswer2: "Hanoi",
+        rightAnswer: "Vientiane",
+      },
+    ],
+  },
+  {
+    question: "What is the currency of Switzerland?",
+    options: [
+      {
+        wrongAnswer: "Euro",
+        rightAnswer: "Swiss Franc",
+      },
+    ],
+  },
+  {
+    question: "What is the currency of the British Virgin Islands?",
+    options: [
+      {
+        wrongAnswer1: "British Pound",
+        wrongAnswer2: "Euro",
+        rightAnswer: "U.S. Dollar",
+      },
+    ],
+  },
+  {
+    question: "What of these is the proper name?",
+    options: [
+      {
+        wrongAnswer1: "Democratic Republic of the Congo",
+        wrongAnswer2: "Republic of the Congo",
+        rightAnswer: "These are two separate countries",
+      },
+    ],
+  },
+  {
+    question:
+      "Which of the following countries does NOT have a bird on its flag?",
+    options: [
+      {
+        wrongAnswer1: "Mexico",
+        wrongAnswer2: "Montenegro",
+        wrongAnswer3: "American Samoa",
+        rightAnswer: "Lebanon",
+      },
+    ],
+  },
+  {
+    question: "True or False: Malay is the official language of 3 countries.",
+    options: [
+      {
+        wrongAnswer: "False",
+        rightAnswer: "True",
+      },
+    ],
+  },
+  {
+    question: "True or False: Spanish is an official language of Gibraltar.",
+    options: [
+      {
+        wrongAnswer: "True",
+        rightAnswer: "False",
+      },
+    ],
+  },
+  {
+    question: "True or False: There are 2 Guyanas.",
+    options: [
+      {
+        wrongAnswer: "False",
+        rightAnswer: "True",
+      },
+    ],
+  },
+  {
+    question: "True or False: Algeria & Slovakia are in the same time zone.",
+    options: [
+      {
+        wrongAnswer: "False",
+        rightAnswer: "True",
+      },
+    ],
+  },
+  {
+    question: "True or False: France officially has 14 time zones.",
+    options: [
+      {
+        wrongAnswer: "False",
+        rightAnswer: "True",
+      },
+    ],
+  },
+  {
+    question:
+      "True or False: German is an official language of a country outside of Europe.",
+    options: [
+      {
+        wrongAnswer: "False",
+        rightAnswer: "True",
+      },
+    ],
+  },
+  {
+    question:
+      "In which country would this sentence be best understood: 'I busted me plugga!'?",
+    options: [
+      {
+        wrongAnswer1: "Ireland",
+        wrongAnswer2: "Canada",
+        rightAnswer: "Australia",
+      },
+    ],
+  },
+  {
+    question: "Tripoli is a ...",
+    options: [
+      {
+        wrongAnswer: "city in Italy",
+        rightAnswer: "city in Libya",
+      },
+    ],
+  },
+  {
+    question:
+      "Which country's flag is most similar to that of the state of Texas?",
+    options: [
+      {
+        wrongAnswer1: "Cuba",
+        wrongAnswer2: "Dominican Republic",
+        wrongAnswer3: "Puerto Rico",
+        rightAnswer: "Chile",
+      },
+    ],
+  },
+  {
+    question: "In which body of water is Cyprus located?",
+    options: [
+      {
+        wrongAnswer1: "Gulf of Mexico",
+        wrongAnswer2: "Pacific Ocean",
+        wrongAnswer3: "Aegean Sea",
+        rightAnswer: "Mediterranean Sea",
+      },
+    ],
+  },
+  {
+    question: "The flag of which country contains a celestial body?",
+    options: [
+      {
+        wrongAnswer1: "Lebanon",
+        wrongAnswer2: "Lesotho",
+        wrongAnswer3: "Serbia",
+        rightAnswer: "Maldives",
+      },
+    ],
+  },
+  {
+    question:
+      "The flag of which country is the same as Austria's, just rotated 90 degrees?",
+    options: [
+      {
+        wrongAnswer1: "Singapore",
+        wrongAnswer2: "Yemen",
+        wrongAnswer3: "Seychelles",
+        rightAnswer: "Peru",
+      },
+    ],
+  },
+  {
+    question: "The flags of which countries are the most similar?",
+    options: [
+      {
+        wrongAnswer1: "Congo & DR Congo",
+        wrongAnswer2: "Ukraine & the United States",
+        wrongAnswer3: "Turkmenistan & Uzbekistan",
+        rightAnswer: "Turkey & Tunisia",
+      },
+    ],
+  },
+  {
+    question:
+      "The flags of which country could most easily be mistaken for the Red Cross?",
+    options: [
+      {
+        wrongAnswer1: "Sweden",
+        wrongAnswer2: "St. Kitts & Nevis",
+        wrongAnswer3: "Svalbard & Jan Mayen",
+        rightAnswer: "Switzerland",
+      },
+    ],
+  },
+  {
+    question: "What is the currency of Hungary?",
+    options: [
+      {
+        wrongAnswer: "Euro",
+        rightAnswer: "Forint",
+      },
+    ],
+  },
 ];
-fullVersionBtn.innerHTML += " (" + allQuestionsArray.length + " Questions)";
+//fullVersionBtn.innerHTML += " (" + allQuestionsArray.length + " Questions)";
 
 // Put random questions into array, then use this array to populate question area:
 // Function to randomly shuffle order of array:
@@ -55,8 +478,8 @@ randomlyShuffleArray(allQuestionsArray);
 let numOfQuestionsInGame;
 const getNumOfQuestions = (btn) => {
   btn.id === "play-short-version-btn"
-    ? (numOfQuestionsInGame = 2) // EVENTUALLY CHANGE TO 10
-    : (numOfQuestionsInGame = allQuestionsArray.length);
+    ? (numOfQuestionsInGame = 10)
+    : (numOfQuestionsInGame = 25);
   console.log(numOfQuestionsInGame);
 };
 
