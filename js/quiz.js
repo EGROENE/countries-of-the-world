@@ -688,7 +688,6 @@ for (let btn of startBtns) {
   btn.addEventListener("click", function () {
     getNumOfQuestions(btn);
     getUsedQuestionsArray();
-    //usedQuestionsArray = randomlyShuffleArray(allQuestionsArray);
     toNext();
   });
 }
