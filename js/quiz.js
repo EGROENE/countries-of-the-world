@@ -542,25 +542,24 @@ const displayOptions = (currentQuestion) => {
 };
 
 // Get different feedback messages for end of quiz:
-let feedbackComment;
-const getFeedbackComment = () => {
+const feedbackComment = () => {
   let percentage = score / usedQuestionsArray.length;
-  if (percentage === 1) {
-    feedbackComment = "Hope you feel proud of yourself.";
-  } else if (percentage >= 0.9) {
-    feedbackComment = "Nice job!";
-  } else if (percentage >= 0.8) {
-    feedbackComment = "Not bad!";
-  } else if (percentage >= 0.7) {
-    feedbackComment = "Not too bad...";
-  } else if (percentage >= 0.6) {
-    feedbackComment = "An average performance...";
-  } else if (percentage >= 0.2) {
-    feedbackComment = "A mediocre performance...";
-  } else {
-    feedbackComment = "You should go read an encyclopedia.";
+  switch (percentage) {
+    case percentage === 1:
+      return "Hope you feel proud of yourself.";
+    case percentage >= 0.9:
+      return "Nice job!";
+    case percentage >= 0.8:
+      return "Not bad!";
+    case percentage >= 0.7:
+      return "Not too bad...";
+    case percentage >= 0.6:
+      return "An average performance...";
+    case percentage >= 0.2:
+      return "A mediocre performance...";
+    default:
+      return "You should go read an encyclopedia.";
   }
-  return feedbackComment;
 };
 
 const toNext = () => {
@@ -582,8 +581,6 @@ const toNext = () => {
     quizMainArea.removeChild(quizMainArea.children[0]);
     // Append results area to DOM:
     quizMainArea.appendChild(resultsArea);
-    // Get feedback comment:
-    getFeedbackComment();
     // Add info to resultsArea:
     resultsArea.innerHTML +=
       "<h1 id='results-header'>Out of " +
@@ -592,7 +589,7 @@ const toNext = () => {
       score +
       " correctly." +
       "</h1><p>" +
-      feedbackComment +
+      feedbackComment() +
       "</p><div id='end-of-quiz-options'>" +
       "<a href='./index.html' title='Return to Homepage'><button id='back-to-homepage'>Return to Homepage</button></a>" +
       "<button id='play-again-btn' title='Play Again!' onclick='window.location.reload()'>Play Again!</button>" +
