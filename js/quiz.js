@@ -350,7 +350,7 @@ const allQuestionsArray = [
     ],
   },
   {
-    question: "What of these is the proper name?",
+    question: "Which of these is the proper name?",
     options: [
       {
         wrongAnswer1: "Democratic Republic of the Congo",
@@ -505,7 +505,7 @@ const allQuestionsArray = [
   },
   {
     question:
-      "The flags of which country could most easily be mistaken for the Red Cross?",
+      "The flag of which country could most easily be mistaken for the Red Cross?",
     options: [
       {
         wrongAnswer1: "Sweden",
