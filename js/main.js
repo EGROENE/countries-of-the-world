@@ -153,7 +153,9 @@ async function getCountries() {
       languagesDataset +
       ">" +
       "<div class='card-flag-container'>" +
-      "<img src='" +
+      "<img id ='" +
+      country.name.common.toLowerCase().replace(/\s/g, "-") +
+      "-flag-homepage' src='" +
       country.flags.png +
       "' alt='" +
       country.flags.alt +

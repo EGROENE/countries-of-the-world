@@ -336,7 +336,9 @@ async function getCountry() {
     "</div>" +
     "<div id='country-body-container'>" +
     "<div id='flag-info-container'>" +
-    "<img src=" +
+    "<img id='" +
+    country.name.common.toLowerCase().replace(/\s/g, "-") +
+    "-flag-country-page' src=" +
     country.flags.png +
     " alt='" +
     country.flags.alt +
