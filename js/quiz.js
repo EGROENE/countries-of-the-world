@@ -605,21 +605,21 @@ const displayOptions = (currentQuestion) => {
 // Get different feedback messages for end of quiz:
 const feedbackComment = () => {
   let percentage = score / usedQuestionsArray.length;
-  switch (percentage) {
-    case percentage === 1:
-      return "Hope you feel proud of yourself.";
-    case percentage >= 0.9:
-      return "Nice job!";
-    case percentage >= 0.8:
-      return "Not bad!";
-    case percentage >= 0.7:
-      return "Not too bad...";
-    case percentage >= 0.6:
-      return "An average performance...";
-    case percentage >= 0.2:
-      return "A mediocre performance...";
-    default:
-      return "You should go read an encyclopedia.";
+  console.log(percentage);
+  if (percentage === 1) {
+    return "Hope you feel proud of yourself.";
+  } else if (percentage >= 0.9) {
+    return "Nice job!";
+  } else if (percentage >= 0.8) {
+    return "Not bad!";
+  } else if (percentage >= 0.7) {
+    return "Not too bad...";
+  } else if (percentage >= 0.6) {
+    return "An average performance...";
+  } else if (percentage >= 0.2) {
+    return "A mediocre performance...";
+  } else {
+    return "You should go read an encyclopedia.";
   }
 };
 
