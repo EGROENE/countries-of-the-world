@@ -72,7 +72,8 @@ const quizBGImages = [
 const setQuizBG = () => {
   let randIndex = Math.floor(Math.random() * quizBGImages.length);
   document.body.style.backgroundImage = "url(" + quizBGImages[randIndex] + ")";
-  document.body.style.backgroundSize = "cover";
+  //document.body.style.backgroundSize = "cover";
+  document.body.style.height = "97vh";
 };
 setQuizBG();
 
