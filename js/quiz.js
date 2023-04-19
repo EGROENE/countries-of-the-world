@@ -83,6 +83,11 @@ const allQuestionsArray = [
     options: [{ wrongAnswer: "true", rightAnswer: "false" }],
   },
   {
+    question:
+      "True or False: Christmas Island is located in the Arctic Circle, near the North Pole.",
+    options: [{ wrongAnswer: "true", rightAnswer: "false" }],
+  },
+  {
     question: "Which country borders both North Korea & Poland?",
     options: [
       {
