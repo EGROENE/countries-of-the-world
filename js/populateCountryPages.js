@@ -47,6 +47,15 @@ async function getCountry() {
       "https://images.unsplash.com/photo-1523659945955-fe95eb9bc70b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGJhaGFtYXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
     ],
 
+    christmasislandBGs: [
+      "https://images.unsplash.com/photo-1516420114325-97684b59e4da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw4NjU3MTUyfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iP3NOrsGX5eeF6PuXIFPxgHaEK%26pid%3DApi&f=1&ipt=f9b1260af79278980c65c5a6892be6c50298ccb545925a92e54cfa8aceaa5f7a&ipo=images",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.hePfkYgxBRcaZwZPN4INDgHaFj%26pid%3DApi&f=1&ipt=3c9260ec4887f499c56f0263425e240d4f071b4562f5f10a6166ebe09c8b319d&ipo=images",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.F1jgwQHg3f60PAlYieGXmQHaE8%26pid%3DApi&f=1&ipt=56c8e447b03a5daf94496b0e7cbc064c6a1e6b4f621ce590664436da41e2d319&ipo=images",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Yt_pRlISvApF2Ajj-FMzegHaE8%26pid%3DApi&f=1&ipt=a30a6e470b53d6ad70ae04ec782592f98fb404e6d5fccac11d60d5021dbbf283&ipo=images",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.FsedohW16384CLLIH-12mgHaE8%26pid%3DApi&f=1&ipt=2aa52b05e48b42e952134f63847a4688e96b17285f55f8d12a6574ebb40a797d&ipo=images",
+    ],
+
     liechtensteinBGs: [
       "https://images.unsplash.com/photo-1512424113276-fa9f6a112384?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGllY2h0ZW5zdGVpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
       "https://images.unsplash.com/photo-1625138385193-bca1f03448ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bGllY2h0ZW5zdGVpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
