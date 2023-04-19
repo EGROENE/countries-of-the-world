@@ -83,6 +83,16 @@ const allQuestionsArray = [
     options: [{ wrongAnswer: "true", rightAnswer: "false" }],
   },
   {
+    question: "Which country borders both North Korea & Poland?",
+    options: [
+      {
+        wrongAnswer1: "Azerbaijan",
+        wrongAnswer2: "China",
+        rightAnswer: "Russia",
+      },
+    ],
+  },
+  {
     question: "Which is a border country of Suriname?",
     options: [
       {
