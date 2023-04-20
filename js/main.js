@@ -90,6 +90,13 @@ async function populateHomepage() {
     let linkTitle = "Click to learn more about " + country.name.common;
     const countriesThatSoundBetterWithTheBeforeName = [
       "caribbean-netherlands",
+      "falkland-islands",
+      "faroe-islands",
+      "cocos-(keeling)-islands",
+      "cayman-islands",
+      "cook-islands",
+      "solomon-islands",
+      "turks-and-caicos-islands",
       "isle-of-man",
       "united-kingdom",
       "netherlands",

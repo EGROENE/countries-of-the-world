@@ -315,6 +315,13 @@ async function getCountry() {
       for (let borderCountry of borderCountryDataObjects) {
         const countriesThatSoundBetterWithTheBeforeName = [
           "caribbean-netherlands",
+          "falkland-islands",
+          "faroe-islands",
+          "cocos-(keeling)-islands",
+          "cayman-islands",
+          "cook-islands",
+          "solomon-islands",
+          "turks-and-caicos-islands",
           "isle-of-man",
           "united-kingdom",
           "netherlands",
