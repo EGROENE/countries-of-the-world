@@ -36,6 +36,11 @@ body {
   background-size: 1900px 900px;
 }
 
+#loading-message-container {
+  text-align: center;
+  margin-top: 12%;
+}
+
 .dark-mode {
   color: white;
   --background-color: #4c5c68;
