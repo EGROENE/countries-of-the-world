@@ -1,7 +1,7 @@
 // Get info from API, populate site:
 const apiURL = "https://restcountries.com/v3.1/all";
 
-async function getCountries() {
+async function populateHomepage() {
   // Call API & convert to json:
   const response = await fetch(apiURL);
   let allCountriesArray = await response.json();
@@ -236,4 +236,4 @@ async function getCountries() {
   let homepageDOM = document.getElementById("homepage-container");
   homepageDOM.removeChild(homepageDOM.children[0]);
 }
-getCountries();
+populateHomepage();
