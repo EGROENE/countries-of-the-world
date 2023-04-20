@@ -235,5 +235,12 @@ async function populateHomepage() {
   // Once all countries have displayed, hide loading message, which displays on pageload:
   let homepageDOM = document.getElementById("homepage-container");
   homepageDOM.removeChild(homepageDOM.children[0]);
+
+  // Style quiz link container that is on the homepage:
+  let quizLinkArea = document.getElementById("quiz-link-container");
+  if (quizLinkArea.parentElement.id === "homepage-container") {
+    quizLinkArea.style.position = "fixed";
+    quizLinkArea.style.bottom = "var(--size-4)";
+  }
 }
 populateHomepage();
