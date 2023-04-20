@@ -29,6 +29,19 @@ async function getCountry() {
 
   // Set BG image for country:
   const specialBGCountriesImgArrays = {
+    northkoreaBGs: [
+      "https://plus.unsplash.com/premium_photo-1670552850940-0f9932fb3d6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bm9ydGglMjBrb3JlYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1604399158527-4c802e850b5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bm9ydGglMjBrb3JlYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1584890309466-272e6fffb487?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bm9ydGglMjBrb3JlYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1604360898901-ddcbeafab6ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bm9ydGglMjBrb3JlYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1543994253-f10b4f0c9495?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3w4NjQzNjg2fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1543325768-557b5f98dfd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTF8ODY0MzY4Nnx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Z1L3BsrNUrVA71FllgGPpgHaEK%26pid%3DApi&f=1&ipt=b376f2fcb31d417196a1d4bbfbb217b707a94eea9ddae322c4c96b19977419fa&ipo=images",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.QuwDw9qTDrFX-n6N-cZDEAHaGe%26pid%3DApi&f=1&ipt=4b1549e10e814f3365a719b9b030492a094f636305606b9ad2a93565ca83b18c&ipo=images",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.6JOzsFzeXBQaIAHWhKEn8AHaE6%26pid%3DApi&f=1&ipt=e93bc8fe7aa979ecfc8d9f6488091e5ec426d9e203da5600557e15d2d386c180&ipo=images",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.jsiE1iGMgLU2LBiFUCZsTQHaFj%26pid%3DApi&f=1&ipt=1d52573c418817ff44b67ead61db5736cd5b2e84333e855a48bd6a7ad0155525&ipo=images",
+    ],
+
     southgeorgiaBGs: [
       "https://images.unsplash.com/photo-1670392269716-8ae55fe7a992?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c291dGglMjBnZW9yZ2lhJTIwaXNsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "https://images.unsplash.com/photo-1592020425844-09e889a937bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c291dGglMjBnZW9yZ2lhJTIwaXNsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
