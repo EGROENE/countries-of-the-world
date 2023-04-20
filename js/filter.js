@@ -69,10 +69,12 @@ const addFilterFunctionality = () => {
       // ... and its border
       showFiltersBtn.style.border = "2px solid var(--text-color)";
       // Add bottom margin to button:
-      if (screen.width <= 810 && screen.width >= 768) {
+      if (screen.width <= 810 && screen.width > 800) {
         showFiltersBtn.style.marginBottom = "19vh";
-      } else if (screen.width <= 800 && screen.width > 601) {
+      } else if (screen.width <= 800 && screen.width > 768) {
         showFiltersBtn.style.marginBottom = "16vh";
+      } else if (screen.width <= 768 && screen.width > 601) {
+        showFiltersBtn.style.marginBottom = "23vh";
       } else if (screen.width <= 601 && screen.width > 414) {
         showFiltersBtn.style.marginBottom = "10vh";
       } else if (
