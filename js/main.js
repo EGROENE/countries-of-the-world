@@ -240,7 +240,7 @@ async function populateHomepage() {
   let quizLinkArea = document.getElementById("quiz-link-container");
   if (quizLinkArea.parentElement.id === "homepage-container") {
     quizLinkArea.style.position = "fixed";
-    quizLinkArea.style.bottom = "var(--size-4)";
+    quizLinkArea.style.bottom = "0";
   }
 }
 populateHomepage();
