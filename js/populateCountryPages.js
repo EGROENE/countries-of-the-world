@@ -29,6 +29,15 @@ async function getCountry() {
 
   // Set BG image for country:
   const specialBGCountriesImgArrays = {
+    southgeorgiaBGs: [
+      "https://images.unsplash.com/photo-1670392269716-8ae55fe7a992?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c291dGglMjBnZW9yZ2lhJTIwaXNsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1592020425844-09e889a937bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c291dGglMjBnZW9yZ2lhJTIwaXNsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://plus.unsplash.com/premium_photo-1664303218668-03fa4e612038?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c291dGglMjBnZW9yZ2lhJTIwaXNsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1517784120905-d9f8d5aced1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c291dGglMjBnZW9yZ2lhJTIwaXNsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1517783999520-f068d7431a60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHNvdXRoJTIwZ2VvcmdpYSUyMGlzbGFuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      "",
+    ],
+
     barbadosBGs: [
       "https://plus.unsplash.com/premium_photo-1670689708255-0bbae284cf88?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFyYmFkb3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
       "https://images.unsplash.com/photo-1633847017573-fa07b1bddc07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmFyYmFkb3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
