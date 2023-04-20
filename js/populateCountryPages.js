@@ -138,8 +138,7 @@ async function getCountry() {
   } else {
     document.body.style.backgroundImage =
       'url("https://source.unsplash.com/1900x600/?' +
-      country.name.common.toLowerCase() +
-      ' the country")';
+      country.name.common.toLowerCase();
   }
 
   // Get country name for header on country pages:
