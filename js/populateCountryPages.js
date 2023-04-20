@@ -286,7 +286,7 @@ async function getCountry() {
         borderCountriesContainerHeader.innerHTML =
           "<header>Border Countries: </header>";
         if (screen.width <= 414 && screen.width >= 360) {
-          borderCountriesList.style.justifyContent = "space-between";
+          borderCountriesList.style.justifyContent = "center";
         }
       } else {
         borderCountriesContainerHeader.innerHTML =
