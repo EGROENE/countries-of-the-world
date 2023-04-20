@@ -41,6 +41,10 @@ body {
   margin-top: 12%;
 }
 
+#loading-message-container header {
+  letter-spacing: 2px;
+}
+
 .dark-mode {
   color: white;
   --background-color: #4c5c68;
