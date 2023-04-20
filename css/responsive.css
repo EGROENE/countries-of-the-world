@@ -165,7 +165,7 @@
     }
 
     #country-page-main-container {
-        height: 76vh;
+        margin-top: var(--size-28);
     }
 
     #country-page-headers-container {
@@ -180,7 +180,6 @@
     #border-countries-list p {
         color: white;
         font-size: var(--size-16);
-        /* text-align: center; */
         margin: 0px var(--size-20);
         margin: var(--size-8);
         font-size: var(--size-20);
@@ -195,7 +194,6 @@
 @media screen and (max-width: 800px) {
     body {
         background-size: 2437px 1323px;
-        /* height: 97vh; */
     }
 
     #quiz-greeting {
@@ -229,6 +227,11 @@
     #border-countries-list a,
     #border-countries-list p {
         margin: var(--size-16);
+    }
+
+    #quiz-link-container {
+        width: 92%;
+        max-width: 93%;
     }
 
     #quiz-greeting {
@@ -336,7 +339,7 @@
     }
 
     #border-countries-list {
-        /* justify-content: space-between; */
+        justify-content: center;
         width: 75%;
     }
 
