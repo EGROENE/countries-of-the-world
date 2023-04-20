@@ -236,8 +236,14 @@ async function populateHomepage() {
   let homepageDOM = document.getElementById("homepage-container");
   homepageDOM.removeChild(homepageDOM.children[0]);
 
-  // Style quiz link container that is on the homepage:
+  // Add quiz link to homepage DOM:
+  let quizLinkAreaNode = document.createElement("div");
+  quizLinkAreaNode.setAttribute("id", "quiz-link-container");
+  homepageDOM.appendChild(quizLinkAreaNode);
+  // Add innerHTML to, style quiz link container that is on the homepage:
   let quizLinkArea = document.getElementById("quiz-link-container");
+  quizLinkArea.innerHTML +=
+    "<a href='./quiz.html'>How well do you know your country trivia? Take the quiz!</a>";
   if (quizLinkArea.parentElement.id === "homepage-container") {
     quizLinkArea.style.position = "fixed";
     quizLinkArea.style.bottom = "0";
