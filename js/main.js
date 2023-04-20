@@ -211,11 +211,13 @@ async function getCountries() {
       scrollToTopBtn.style.display = "none";
     }
   };
+
   // Call function to display scroll-to-top button:
   window.onscroll = function () {
     displayScrollToTopBtn();
   };
 
+  // Populate searchContainer once countries have all displayed:
   let searchContainer = document.getElementById("search-container");
   searchContainer.innerHTML +=
     '<div id="search-box">' +
@@ -224,9 +226,14 @@ async function getCountries() {
     "</div>" +
     '<p id="results-message"></p>';
 
+  // Populate filterContainer once countries have all displayed:
   let filterContainer = document.getElementById("filter-container");
   filterContainer.innerHTML +=
     '<button id="show-filters-btn">Filter by Region<i class="fas fa-chevron-down"></i></button>' +
     '<div id="dropdown-content"></div>';
+
+  // Once all countries have displayed, hide loading message, which displays on pageload:
+  let homepageDOM = document.getElementById("homepage-container");
+  homepageDOM.removeChild(homepageDOM.children[0]);
 }
 getCountries();
