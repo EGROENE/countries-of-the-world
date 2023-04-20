@@ -401,7 +401,7 @@ async function getCountry() {
   getBorders();
 
   // Populate area for quiz link:
-  const quizLinkArea = document.getElementById("quiz-link-country-pages-area");
+  const quizLinkArea = document.getElementById("quiz-link-container");
   quizLinkArea.innerHTML +=
     "<a href='../quiz.html'>How well do you know your country trivia? Take the quiz!</a>";
 }

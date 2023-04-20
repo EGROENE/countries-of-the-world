@@ -656,7 +656,7 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
-#quiz-link-country-pages-area {
+#quiz-link-container {
   background-color: var(--theme-color-one);
   text-align: center;
   margin: var(--size-12) auto;
@@ -665,12 +665,12 @@ input:checked + .slider:before {
   max-width: 91%;
 }
 
-#quiz-link-country-pages-area a {
+#quiz-link-container a {
   font-size: var(--size-20);
   color: black;
 }
 
-#quiz-link-country-pages-area a:hover {
+#quiz-link-container a:hover {
   cursor: pointer;
   text-decoration: underline;
 }
