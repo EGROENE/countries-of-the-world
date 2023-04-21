@@ -51,6 +51,7 @@ const addFilterFunctionality = () => {
 
   // Function for when the user clicks on the button, toggle between hiding and showing the dropdown content:
   const showFiltersBtn = document.getElementById("show-filters-btn");
+  const filterDropdownContent = document.getElementById("dropdown-content");
   let chevron = document.querySelector("#show-filters-btn i");
   function showFilterOptions() {
     if (dropdownOptionsArea.style.display === "flex") {
@@ -69,23 +70,23 @@ const addFilterFunctionality = () => {
       // ... and its border
       showFiltersBtn.style.border = "2px solid var(--text-color)";
       // Add bottom margin to button:
-      if (screen.width <= 810 && screen.width > 800) {
-        showFiltersBtn.style.marginBottom = "19vh";
+      /* if (screen.width <= 810 && screen.width > 800) {
+        filterDropdownContent.style.marginTop = "1rem";
       } else if (screen.width <= 800 && screen.width > 768) {
-        showFiltersBtn.style.marginBottom = "16vh";
+        filterDropdownContent.style.marginTop = "1rem";
       } else if (screen.width <= 768 && screen.width > 601) {
-        showFiltersBtn.style.marginBottom = "23vh";
+        filterDropdownContent.style.marginTop = "1rem";
       } else if (screen.width <= 601 && screen.width > 414) {
-        showFiltersBtn.style.marginBottom = "10vh";
+        filterDropdownContent.style.marginTop = "1rem";
       } else if (
         screen.width <= 414 &&
         screen.width > 359 &&
         screen.height > 640
       ) {
-        showFiltersBtn.style.marginBottom = "30vh";
+        filterDropdownContent.style.marginTop = "1rem";
       } else {
-        showFiltersBtn.style.marginBottom = "3rem";
-      }
+        filterDropdownContent.style.marginTop = "3rem";
+      } */
       // Flip the chevron:
       chevron.style.rotate = "180deg";
       dropdownOptionsArea.style.display = "flex";
