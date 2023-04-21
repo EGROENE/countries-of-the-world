@@ -400,7 +400,7 @@ async function getCountry() {
     "</div>" +
     "</div>" +
     "</div>" +
-    "<div id='border-countries-container'><header>Neighboring Countries: </header>" +
+    "<div id='border-countries-container'><header>Border Countries: </header>" +
     "<div id='border-countries-list'></div>" +
     "</div>" +
     "</div>";
