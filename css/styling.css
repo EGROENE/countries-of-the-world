@@ -317,8 +317,9 @@ input:checked + .slider:before {
 
 /* Dropdown Content (Hidden by Default) */
 #dropdown-content {
+  margin-top: 1rem;
   display: none;
-  position: absolute;
+  /* position: absolute; */
   background-color: var(--background-color-opposite);
   min-width: 15rem;
   z-index: 100;
