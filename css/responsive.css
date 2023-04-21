@@ -249,6 +249,10 @@
         position:relative;
     }
 
+    .site-header-logo-container header {
+        font-size: var(--size-24);
+    }
+
     #homepage-functions-container {
         flex-direction: column;
     }
