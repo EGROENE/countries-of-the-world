@@ -279,6 +279,7 @@
 
     #scroll-to-top-btn {
         left: 87%;
+        top: 50%;
     }
 
     #country-page-main-container {
@@ -336,6 +337,12 @@
 
     #scroll-to-top-btn {
         left: 81%;
+    }
+
+    #country-body-container #switzerland-flag-country-page {
+        border: var(--size-4) solid var(--theme-color-one);
+        width: 16rem;
+        height: 14rem;
     }
 
     #border-countries-list {
