@@ -16,7 +16,9 @@
   --size-64: 4rem;
   /*     --header-font: 'Timmana', sans-serif;
  */
-  --header-font: fantasy;
+/*   --header-font: fantasy;
+ */  
+  --header-font: 'Anton', monospace;
   --body-font: "Mukta Mahee", sans-serif;
   --background-color: #dcdcdd;
   --background-color-opposite: #4c5c68;
