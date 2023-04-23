@@ -87,7 +87,6 @@ async function populateHomepage() {
     let languagesElement = "<p>Languages: <span>NONE</span></p>";
     if (country.languages) {
       languages = Object.values(country.languages);
-      console.log(languages);
       // Set country's languages dataset value:
       languagesDataset = languages.map((language) => language.toLowerCase());
       languagesDataset = languagesDataset.join("-").replace(/\s/g, "-");
