@@ -204,7 +204,7 @@ input:checked + .slider:before {
   background-color: var(--theme-color-one);
   border: none;
   z-index: 300;
-  padding: 16px;
+  padding: 1rem;
 }
 
 #scroll-to-top-btn:hover {
@@ -319,15 +319,15 @@ input:checked + .slider:before {
 #dropdown-content {
   margin-top: 1rem;
   display: none;
-  /* position: absolute; */
   background-color: var(--background-color-opposite);
   min-width: 15rem;
-  z-index: 100;
   color: var(--text-color-opposite);
   padding: var(--size-4);
   font-family: var(--body-font);
   text-transform: capitalize;
   font-size: var(--size-20);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #dropdown-content div {
@@ -367,7 +367,7 @@ input:checked + .slider:before {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  margin: 2rem;
+  margin: 2rem 2rem 4rem 2rem;
 }
 
 .country-card {
@@ -531,7 +531,6 @@ input:checked + .slider:before {
 #country-page-headers-container header {
   font-size: var(--size-32);
   font-family: var(--header-font);
-  height: 2.6rem;
 }
 
 #country-page-headers-container p {
@@ -617,7 +616,7 @@ input:checked + .slider:before {
   justify-content: center;
   background-color: var(--background-color-opposite);
   text-transform: uppercase;
-  padding: var(--size-12) 0;
+  padding: var(--size-12) var(--size-8);
   background-color: var(--theme-color-two);
   border: 1px solid var(--theme-color-one);
 }
