@@ -555,7 +555,7 @@
 
 @media screen and (max-width: 360px) {
     #all-countries-container {
-        margin: 1rem;
+        margin: 1rem 1rem 8rem 1rem;
     }
 
     #country-body-container img {
@@ -588,6 +588,10 @@
 
     #search-box input {
         width: 12rem;
+    }
+
+    #all-countries-container {
+        margin: 1rem 1rem 9rem 1rem;
     }
 
     #scroll-to-top-btn {
