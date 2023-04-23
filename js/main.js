@@ -8,8 +8,8 @@ async function populateHomepage() {
 
   // Add data from API to mainArray, which will be used to populate homepage:
   let mainArray = [];
-  //for (let i = 0; i < allCountriesArray.length; i++) {
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < allCountriesArray.length; i++) {
+    //for (let i = 0; i < 4; i++) {
     mainArray.push(allCountriesArray[i]);
   }
   // Sort countries alphabetically before displaying on homepage:
@@ -81,14 +81,22 @@ async function populateHomepage() {
         : (capitalElement = "<p>Capital: <span>" + capital + "</span></p>");
     }
 
-    // Set country's languages dataset value:
+    // Get language(s):
     let languagesDataset = "NONE";
-    let languages = "NONE";
+    let languagesElement = "<p>Languages: <span>NONE</span></p>";
     if (country.languages) {
       languages = Object.values(country.languages);
+      console.log(languages);
+      // Set country's languages dataset value:
       languagesDataset = languages.map((language) => language.toLowerCase());
       languagesDataset = languagesDataset.join("-").replace(/\s/g, "-");
-      languages = languages.join(", ");
+      // If more than one language, adjust grammar accordingly:
+      languages.length > 1
+        ? (languagesElement =
+            "<p>Languages: <span>" + languages.join(", ") + "</span></p>")
+        : (languagesElement =
+            "<p>Language: <span>" + languages + "</span></p>");
+      //languages = languages.join(", ");
     }
 
     // If names sound better with 'the' in front of them, add 'the' to these countries' link titles. Else, link title is country's common name.
@@ -193,11 +201,7 @@ async function populateHomepage() {
       "</span>" +
       "</p>" +
       capitalElement +
-      "<p>Language(s): " +
-      "<span>" +
-      languages +
-      "</span>" +
-      "</p>" +
+      languagesElement +
       "</div>" +
       "</a>";
   }
