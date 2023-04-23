@@ -77,7 +77,8 @@ async function populateHomepage() {
       capitalDataset = capitalDataset.join("-").replace(/\s/g, "-");
       // If more than one capital, adjust grammar accordingly:
       capital.length > 1
-        ? (capitalElement = "<p>Capitals: <span>" + capital + "</span></p>")
+        ? (capitalElement =
+            "<p>Capitals: <span>" + capital.join(", ") + "</span></p>")
         : (capitalElement = "<p>Capital: <span>" + capital + "</span></p>");
     }
 
