@@ -8,8 +8,8 @@ async function populateHomepage() {
 
   // Add data from API to mainArray, which will be used to populate homepage:
   let mainArray = [];
-  for (let i = 0; i < allCountriesArray.length; i++) {
-    //for (let i = 0; i < 4; i++) {
+  //for (let i = 0; i < allCountriesArray.length; i++) {
+  for (let i = 0; i < 4; i++) {
     mainArray.push(allCountriesArray[i]);
   }
   // Sort countries alphabetically before displaying on homepage:
@@ -67,13 +67,18 @@ async function populateHomepage() {
       subregion = country.subregion;
     }
 
+    // Get capital(s):
     let capitalDataset = "NONE";
-    let capital = ["NONE"];
+    let capitalElement = "<p>Capital: <span>NONE</span></p>";
     if (country.capital) {
       capital = country.capital;
+      // Get dataset:
       capitalDataset = capital.map((capital) => capital.toLowerCase());
       capitalDataset = capitalDataset.join("-").replace(/\s/g, "-");
-      capital = capital.join(", ");
+      // If more than one capital, adjust grammar accordingly:
+      capital.length > 1
+        ? (capitalElement = "<p>Capitals: <span>" + capital + "</span></p>")
+        : (capitalElement = "<p>Capital: <span>" + capital + "</span></p>");
     }
 
     // Set country's languages dataset value:
@@ -187,11 +192,7 @@ async function populateHomepage() {
       country.population.toLocaleString() +
       "</span>" +
       "</p>" +
-      "<p>Capital(s): " +
-      "<span>" +
-      capital.toString() +
-      "</span>" +
-      "</p>" +
+      capitalElement +
       "<p>Language(s): " +
       "<span>" +
       languages +
