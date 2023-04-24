@@ -75,7 +75,10 @@ const setQuizBG = () => {
   //document.body.style.backgroundSize = "cover";
   document.body.style.height = "97vh";
 };
-setQuizBG();
+// BG image should only display on larger devices. Else, solid color should be the BG:
+if (window.screen.width > 500) {
+  setQuizBG();
+}
 
 const allQuestionsArray = [
   {
@@ -640,8 +643,10 @@ const feedbackComment = () => {
 };
 
 const toNext = () => {
-  // Change bg image:
-  setQuizBG();
+  // Change bg image (on larger screens):
+  if (window.screen.width > 500) {
+    setQuizBG();
+  }
   // Increment questionIndex by one:
   questionIndex++;
   // IF questionIndex is zero (if on first question), delete the quiz greeting from the DOM, display info for first question.
