@@ -9,4 +9,6 @@ As mentioned above, I created a trivia quiz as well, which tests the user's gene
 
 At any time, the user may toggle between light & dark display modes. These changes are stored in the user's browser's local storage, so they will be remembered when the user opens the site again, even after closing the browser & opening the site again in the future, as long as they do so outside of incognito mode & with the same browser as before, and didn't somehow reset browser settings that could affect this.
 
+The data on each page displays dynamically.
+
 The site displays well on mobile screens as well as desktop-sized ones.
