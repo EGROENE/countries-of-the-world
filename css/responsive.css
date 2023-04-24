@@ -428,6 +428,10 @@
     .site-header-logo-container i {
         padding: var(--size-12);
     }
+
+    #start-btns-container button, #options-container button, #end-of-quiz-options button {
+        font-size: var(--size-12);
+    }
 }
 
 @media screen and (max-width: 414px) {
