@@ -406,6 +406,13 @@ async function getCountry() {
     "</div>";
   getBorders();
 
+  // Make the position of site header not sticky, as it is on the homepage:
+  const countryPageDOM = countryDataContainer.parentElement;
+  const siteHeaderCountryPages = countryPageDOM.children[0];
+  if (countryPageDOM.children[1].id === "country-page-main-container") {
+    siteHeaderCountryPages.style.position = "unset";
+  }
+
   // Populate area for quiz link:
   const quizLinkArea = document.getElementById("quiz-link-container");
   quizLinkArea.innerHTML +=
