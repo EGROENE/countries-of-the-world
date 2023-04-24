@@ -72,7 +72,6 @@ const quizBGImages = [
 const setQuizBG = () => {
   let randIndex = Math.floor(Math.random() * quizBGImages.length);
   document.body.style.backgroundImage = "url(" + quizBGImages[randIndex] + ")";
-  //document.body.style.backgroundSize = "cover";
   document.body.style.height = "97vh";
 };
 // BG image should only display on larger devices. Else, solid color should be the BG:
