@@ -233,7 +233,7 @@ async function populateHomepage() {
   let searchContainer = document.getElementById("search-container");
   searchContainer.innerHTML +=
     '<div id="search-box">' +
-    '<input id="search-input" type="text" placeholder="Search countries" title="Search by English name, region, subregion, capital, population, currency, or language">' +
+    '<input id="search-input" type="text" placeholder="Search countries" title="Search by name, region, subregion, capital, population, currency, or language">' +
     '<i class="fas fa-times" id="clear-searchbox"></i>' +
     "</div>" +
     '<p id="results-message"></p>';
