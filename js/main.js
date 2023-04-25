@@ -22,7 +22,6 @@ async function populateHomepage() {
     }
     return 0;
   });
-  console.log(mainArray);
 
   for (let country of mainArray) {
     // Get native names into array, then use that array to add all native names to data-native-names (if country has native names):
@@ -252,7 +251,7 @@ async function populateHomepage() {
   let quizLinkAreaNode = document.createElement("div");
   quizLinkAreaNode.setAttribute("id", "quiz-link-container");
   homepageDOM.appendChild(quizLinkAreaNode);
-  // Add innerHTML to, style quiz link container that is on the homepage:
+  // Add innerHTML to, style quiz link container, that is on the homepage:
   let quizLinkArea = document.getElementById("quiz-link-container");
   quizLinkArea.innerHTML +=
     "<a href='./quiz.html'>How well do you know your country trivia? Take the quiz!</a>";

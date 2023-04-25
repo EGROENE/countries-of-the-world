@@ -79,6 +79,7 @@ if (window.screen.width > 500) {
   setQuizBG();
 }
 
+// Create array that contains all the questions, w/ each question inside its own object:
 const allQuestionsArray = [
   {
     question: "True or False: The population of Canada is over 50 million.",
@@ -565,7 +566,7 @@ const getNumOfQuestions = (btn) => {
 };
 
 let usedQuestionsArray = [];
-// Function to get usedQuestionsArray:
+// Function to get usedQuestionsArray, which will contain the questions used in a quiz round:
 const getUsedQuestionsArray = () => {
   for (
     let i = 0;
@@ -620,10 +621,9 @@ const displayOptions = (currentQuestion) => {
   }
 };
 
-// Get different feedback messages for end of quiz:
+// Get different feedback messages for end of quiz, based on the round's score:
 const feedbackComment = () => {
   let percentage = score / usedQuestionsArray.length;
-  console.log(percentage);
   if (percentage === 1) {
     return "Hope you feel proud of yourself.";
   } else if (percentage >= 0.9) {
@@ -642,7 +642,7 @@ const feedbackComment = () => {
 };
 
 const toNext = () => {
-  // Change bg image (on larger screens):
+  // Change bg image (only on larger screens):
   if (window.screen.width > 500) {
     setQuizBG();
   }

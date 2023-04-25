@@ -25,7 +25,6 @@ async function getCountry() {
       }
     }
   }
-  console.log(country);
 
   // Set BG image for country:
   const specialBGCountriesImgArrays = {

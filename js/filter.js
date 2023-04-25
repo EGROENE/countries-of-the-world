@@ -51,7 +51,6 @@ const addFilterFunctionality = () => {
 
   // Function for when the user clicks on the button, toggle between hiding and showing the dropdown content:
   const showFiltersBtn = document.getElementById("show-filters-btn");
-  const filterDropdownContent = document.getElementById("dropdown-content");
   let chevron = document.querySelector("#show-filters-btn i");
   function showFilterOptions() {
     if (dropdownOptionsArea.style.display === "flex") {
@@ -69,24 +68,6 @@ const addFilterFunctionality = () => {
       showFiltersBtn.style.backgroundColor = "transparent";
       // ... and its border
       showFiltersBtn.style.border = "2px solid var(--text-color)";
-      // Add bottom margin to button:
-      /* if (screen.width <= 810 && screen.width > 800) {
-        filterDropdownContent.style.marginTop = "1rem";
-      } else if (screen.width <= 800 && screen.width > 768) {
-        filterDropdownContent.style.marginTop = "1rem";
-      } else if (screen.width <= 768 && screen.width > 601) {
-        filterDropdownContent.style.marginTop = "1rem";
-      } else if (screen.width <= 601 && screen.width > 414) {
-        filterDropdownContent.style.marginTop = "1rem";
-      } else if (
-        screen.width <= 414 &&
-        screen.width > 359 &&
-        screen.height > 640
-      ) {
-        filterDropdownContent.style.marginTop = "1rem";
-      } else {
-        filterDropdownContent.style.marginTop = "3rem";
-      } */
       // Flip the chevron:
       chevron.style.rotate = "180deg";
       dropdownOptionsArea.style.display = "flex";
@@ -218,4 +199,4 @@ const addFilterFunctionality = () => {
   }
 };
 // Give API time to display country cards:
-setTimeout(addFilterFunctionality, 3000);
+setTimeout(addFilterFunctionality, 5000);
