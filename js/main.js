@@ -147,26 +147,36 @@ async function populateHomepage() {
   // Put remaining code into one function outside of larger function. Loop through condensed array, not mainArray, to pop homepage. Just keep += new elements that appear in condensed array into the inner html
   // This new func should be called on pageload and upon click of "show more" btn
   // Actually, should be part of populateHomepage async function
-  let startingIndex = -1;
+  let startingIndex = 0;
+  let loadCountriesTally = 0;
   const condensedArray = [];
   let homepageDOM = document.getElementById("homepage-container");
+
+  let showMoreBtnNode = document.createElement("button");
+  showMoreBtnNode.setAttribute("id", "show-more-button");
+  showMoreBtnNode.innerHTML += "Show more";
+  console.log(showMoreBtnNode);
   // Begin function here
   const populateHomepageHTML = () => {
-    startingIndex++;
-    console.log(homepageDOM.children[2]);
+    loadCountriesTally++;
+    console.log(loadCountriesTally);
+    if (loadCountriesTally > 1) {
+      startingIndex += 25;
+    }
+    console.log(startingIndex);
     for (let i = startingIndex; i < 25; i++) {
       condensedArray.push(mainArray[i]);
     }
+    console.log(mainArray[startingIndex]);
     console.log(condensedArray);
+    // If length of condensedArray === mainArray, then show more btn variable should be blank. Else, var should be HTML for a button.
+    if (condensedArray.length === mainArray.length) {
+      showMoreBtnNode.style.display = "none";
+    }
 
     // Populate homepage:
     // Loop through condensedArray to do this.
     let allCountriesArea = document.getElementById("all-countries-container");
-    // If length of condensedArray === mainArray, then show more btn variable should be blank. Else, var should be HTML for a button.
-    let showMoreBtn = document.createElement("button");
-    showMoreBtn.setAttribute("id", "show-more-button");
-    showMoreBtn.innerHTML += "Show more";
-    console.log(showMoreBtn);
 
     for (let country of condensedArray) {
       // Get native names into array, then use that array to add all native names to data-native-names (if country has native names):
@@ -351,13 +361,15 @@ async function populateHomepage() {
         "</a>";
     }
     console.log(homepageDOM.children[3]);
-    console.log(showMoreBtn);
-    homepageDOM.insertBefore(showMoreBtn, homepageDOM.children[4]);
+    console.log(showMoreBtnNode);
   };
-
   populateHomepageHTML();
 
+  homepageDOM.insertBefore(showMoreBtnNode, homepageDOM.children[4]);
+
   // Add EL for populateHomepageHTML to "show more" button
+  const showMoreBtn = document.getElementById("show-more-button");
+  showMoreBtn.addEventListener("click", populateHomepageHTML);
 
   // Add EL to scroll-to-top button. This EL's callback function scrolls to the top of the page when the button is clicked:
   const scrollToTopBtn = document.getElementById("scroll-to-top-btn");
