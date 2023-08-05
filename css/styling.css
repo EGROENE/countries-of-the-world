@@ -47,6 +47,19 @@ body {
   animation-iteration-count: infinite;
 }
 
+#reload-page-btn {
+  margin-top: 12px;
+  background-color: var(--theme-color-one);
+  border: none;
+  padding: 8px 16px;
+  font-family: var(--header-font);
+}
+
+#reload-page-btn:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
 .dark-mode {
   color: white;
   --background-color: #4c5c68;
