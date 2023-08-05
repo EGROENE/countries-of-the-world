@@ -198,5 +198,3 @@ const addFilterFunctionality = () => {
     );
   }
 };
-// Give API time to display country cards:
-setTimeout(addFilterFunctionality, 5000);

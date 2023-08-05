@@ -83,5 +83,3 @@ addSearchFunctionality = () => {
     }
   });
 };
-// Give API time to display country cards:
-setTimeout(addSearchFunctionality, 6000);
