@@ -43,6 +43,10 @@ body {
   letter-spacing: 2px;
 }
 
+.animate__animated.animate__pulse {
+  animation-iteration-count: infinite;
+}
+
 .dark-mode {
   color: white;
   --background-color: #4c5c68;
