@@ -4,7 +4,7 @@ const apiURL = "https://restcountries.com/v3.1/all";
 async function populateHomepage() {
   // Call API
   const apiResponse = await fetch(apiURL);
-  // If HTTPS response status code is not 200-299 (unsuccessful)...
+  // If HTTPS response status code is not 200-299 (fetch was unsuccessful)...
   if (!apiResponse.ok) {
     // Once all countries have displayed, hide loading message, which displays on pageload:
     let userMessageDOM = document.getElementById("loading-message-container");
