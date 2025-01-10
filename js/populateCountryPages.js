@@ -1,7 +1,5 @@
 // Access area on country page where its data should display:
-const countryDataContainer = document.getElementById(
-  "country-page-main-container"
-);
+const countryDataContainer = document.getElementById("country-page-main-container");
 
 // Get name of country on html page:
 const countryName = document.title;
@@ -126,8 +124,7 @@ async function getCountry() {
   };
 
   // If particular country is a country that has unique background images, set one of these randomly as the BG. Else, set BG img based on search:
-  let specialCountryKey =
-    country.name.common.replace(/\s/g, "").toLowerCase() + "BGs";
+  let specialCountryKey = country.name.common.replace(/\s/g, "").toLowerCase() + "BGs";
 
   if (Object.keys(specialBGCountriesImgArrays).includes(specialCountryKey)) {
     let specialCountryBGImages = specialBGCountriesImgArrays[specialCountryKey];
@@ -136,19 +133,16 @@ async function getCountry() {
       "url(" + specialCountryBGImages[randIndex] + ")";
   } else {
     document.body.style.backgroundImage =
-      'url("https://source.unsplash.com/1900x600/?' +
-      country.name.common.toLowerCase();
+      "url(https://source.unsplash.com/1900x600/?" + country.name.common.toLowerCase();
   }
 
   // Get country name for header on country pages:
   let countryPageHeader;
   // If DR Congo is the country, set its official name as the header, not its common name:
   if (country.name.common === "DR Congo") {
-    countryPageHeader =
-      "<header>" + country.name.official.toUpperCase() + "</header>";
+    countryPageHeader = "<header>" + country.name.official.toUpperCase() + "</header>";
   } else {
-    countryPageHeader =
-      "<header>" + country.name.common.toUpperCase() + "</header>";
+    countryPageHeader = "<header>" + country.name.common.toUpperCase() + "</header>";
   }
 
   // Get native names:
@@ -160,9 +154,7 @@ async function getCountry() {
     );
     if (nativeNames.length >= 1) {
       nativeNames =
-        "<p>" +
-        nativeNames.map((nativeName) => nativeName.common).join(" | ") +
-        "</p>";
+        "<p>" + nativeNames.map((nativeName) => nativeName.common).join(" | ") + "</p>";
     }
   }
 
@@ -193,8 +185,7 @@ async function getCountry() {
     currencies = Object.values(country.currencies);
     currencies = currencies.map((currency) => currency.name);
     if (currencies.length > 1) {
-      currencies =
-        "<p>Currencies: " + "<span>" + currencies.join(", ") + "</span></p>";
+      currencies = "<p>Currencies: " + "<span>" + currencies.join(", ") + "</span></p>";
     } else {
       currencies = "<p>Currency: " + "<span>" + currencies + "</span></p>";
     }
@@ -203,11 +194,9 @@ async function getCountry() {
   // Get country's timezones:
   let timezones;
   if (country.timezones.length === 1) {
-    timezones =
-      "<p>Timezone: <span>" + country.timezones.toString() + "</span></p>";
+    timezones = "<p>Timezone: <span>" + country.timezones.toString() + "</span></p>";
   } else {
-    timezones =
-      "<p>Timezones: <span>" + country.timezones.join(", ") + "</span></p>";
+    timezones = "<p>Timezones: <span>" + country.timezones.join(", ") + "</span></p>";
   }
 
   // Get country's driving side:
@@ -219,11 +208,9 @@ async function getCountry() {
   // Get continent(s):
   let continents;
   if (country.continents.length === 1) {
-    continents =
-      "<p>Continent: <span>" + country.continents.toString() + "</span></p>";
+    continents = "<p>Continent: <span>" + country.continents.toString() + "</span></p>";
   } else {
-    continents =
-      "<p>Continents: <span>" + country.continents.join(", ") + "</span></p>";
+    continents = "<p>Continents: <span>" + country.continents.join(", ") + "</span></p>";
   }
 
   // Get region:
@@ -251,8 +238,7 @@ async function getCountry() {
   if (country.languages) {
     languages = Object.values(country.languages);
     if (languages.length > 1) {
-      languages =
-        "<p>Languages: " + "<span>" + languages.join(", ") + "</span></p>";
+      languages = "<p>Languages: " + "<span>" + languages.join(", ") + "</span></p>";
     } else if (languages.length === 1) {
       languages = "<p>Language: " + "<span>" + languages + "</span>" + "</p>";
     }
@@ -270,8 +256,7 @@ async function getCountry() {
   // Function that searches border countries by their code:
   let searchBorderCountries;
   const searchBorderCountriesFunction = (borderCountryCode) => {
-    searchBorderCountries =
-      "https://restcountries.com/v3.1/alpha/" + borderCountryCode;
+    searchBorderCountries = "https://restcountries.com/v3.1/alpha/" + borderCountryCode;
     searchQueries.push(searchBorderCountries);
   };
 
@@ -282,14 +267,12 @@ async function getCountry() {
     let borderCountriesList = document.getElementById("border-countries-list");
     if (borderCountries) {
       if (borderCountries.length > 1) {
-        borderCountriesContainerHeader.innerHTML =
-          "<header>Border Countries: </header>";
+        borderCountriesContainerHeader.innerHTML = "<header>Border Countries: </header>";
         if (screen.width <= 414 && screen.width >= 360) {
           borderCountriesList.style.justifyContent = "center";
         }
       } else {
-        borderCountriesContainerHeader.innerHTML =
-          "<header>Border Country: </header>";
+        borderCountriesContainerHeader.innerHTML = "<header>Border Country: </header>";
         if (screen.width <= 414 && screen.width > 0) {
           borderCountriesList.style.justifyContent = "center";
         }
